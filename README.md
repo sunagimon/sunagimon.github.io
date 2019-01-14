@@ -1,2 +1,2 @@
 # sunagimon.github.io
-Portfolio/public
+portfolio/public
