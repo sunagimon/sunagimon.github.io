@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Takuto Ukawa&#39;s Portfolio</title>
+    <link>https://sunagimon.github.io/blog/</link>
+    <description>Recent content in Blog on Takuto Ukawa&#39;s Portfolio</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate>
+    
+	<atom:link href="https://sunagimon.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>https://sunagimon.github.io/blog/test/</link>
+      <pubDate>Sun, 15 Jul 2018 12:27:38 +0600</pubDate>
+      
+      <guid>https://sunagimon.github.io/blog/test/</guid>
+      <description>aaaa
+bbbbbb</description>
+    </item>
+    
+  </channel>
+</rss>

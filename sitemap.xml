@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://sunagimon.github.io/portfolio/vortex/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/portfolio/conversation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/portfolio/grot/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/blog/</loc>
+    <lastmod>2018-07-15T12:32:37+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/blog/test/</loc>
+    <lastmod>2018-07-15T12:27:38+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/portfolio/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sunagimon.github.io/</loc>
+    <lastmod>2018-07-15T12:27:38+06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
