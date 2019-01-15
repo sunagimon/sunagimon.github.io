@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Takuto Ukawa&#39;s Portfolio</title>
+    <title>Takuto Ukawa (宇川 拓人)&#39;s Portfolio</title>
     <link>https://sunagimon.github.io/</link>
-    <description>Recent content on Takuto Ukawa&#39;s Portfolio</description>
+    <description>Recent content on Takuto Ukawa (宇川 拓人)&#39;s Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jul 2018 12:27:38 +0600</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 23:32:27 +0900</lastBuildDate>
     
 	<atom:link href="https://sunagimon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +17,25 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunagimon.github.io/portfolio/vortex/</guid>
-      <description>aaaaaa</description>
+      <description>Movie  Caption 最後に見た「渦」は何であろうか
+竜巻？渦潮？人の渦？興奮の渦？銀河？
+「渦」はそこにあるようでない
+「渦」とは何であろうか
+物？形？流れ？動き？現象？
+あなたは「渦」のそばにいる
+あなたは「渦」をつくっている
+あなたは「渦」の一部かもしれない
+「渦」は気づいているであろうか
+彼をつくる「個」を
+「個」は気づいているであろうか
+彼がつくる「渦」を
+皆はバラバラでない
+皆は一つの「渦」をつくっている
+Tech 空中で渦を描くことにより水中に渦を発生させる水槽. LeapMotionを用い, 手で渦を描く動作を認識している. 渦の発生・消滅機構は水槽下の2個の水流発生ポンプの制御と下部に空いた穴により実現している．
+Comment DJのようにスクラッチし, 渦を触れずに操作する. それはやがて周りを巻き込む. 気づいているであろうか. あなたは「渦」を作り出している. 皆は「渦」の一部である. 壮大なコンセプトとは裏腹に,
+身近な自然物である「水」を魔法のように触れずに操作する体験は分かりやすい面白さであった.
+Link 東京大学制作展 &amp;ldquo;Dest-logy&amp;rdquo; REBUILD
+橋本健</description>
     </item>
     
     <item>
@@ -26,7 +44,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunagimon.github.io/portfolio/conversation/</guid>
-      <description>aaaaaa</description>
+      <description>coming soon</description>
     </item>
     
     <item>
@@ -35,17 +53,39 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunagimon.github.io/portfolio/grot/</guid>
-      <description>aaaaaa</description>
+      <description>Movie Coming Soon&amp;hellip;
+Caption 人間の手は不思議だ。 意識の内部にありつつ限りなく身体的外部に近い存在である。 もしも自分の手が植物と融合したり機械の手になって目の前に現れてきたら、私たちの感情には何かしらの変化が生じるだろう。
+テクノロジーは不思議だ。 私たちの手によって生み出されたものでありながら、時に私たちの理解を超える。 この先テクノロジーはこのまま発展するのか、それとも限界を迎えて崩壊するのか、私たちは予想もできない。
+この先私たちはどのような時代を経験するだろうか。 果たしてテクノロジーはどのように変容するだろうか。
+Grow or Rot ??
+この作品では、私たちの手がどのような変貌を遂げるのかを表現しました。
+Tech 箱に手を入れるとディスプレイに手が表示される. 浮かび上がる球状の概念を触ることにより, それが持つ属性を自身の手に宿す. LeapMotionを用いて手の動きをセンシングし, Unity上で手や概念球をレンダリングしている.
+Comment 人間の手 = テクノロジーはこれからどのように変容していくのであろうか. Animal, Cyber, Plant, Machine何を優先すればいいのであろうか. やがて訪れる未来の姿に私たちは何を感じるのであろうか. 奥が見えない箱 + その先を表現した映像はHMDを使わずとも自己所有感や自己主体感を高めることができた. 概念級の触覚フィードバックを考えていたが, センサーの精度が低下するため断念した.
+Link 東京大学制作展 Extra &amp;ldquo;Dest-logy&amp;rdquo;
+小沢健悟</description>
     </item>
     
     <item>
-      <title>Test</title>
-      <link>https://sunagimon.github.io/blog/test/</link>
-      <pubDate>Sun, 15 Jul 2018 12:27:38 +0600</pubDate>
+      <title>Number-Block</title>
+      <link>https://sunagimon.github.io/portfolio/pazzle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sunagimon.github.io/blog/test/</guid>
-      <description>aaaa
-bbbbbb</description>
+      <guid>https://sunagimon.github.io/portfolio/pazzle/</guid>
+      <description>Photo coming soon Tech coming soon Comment coming soon Link GitHub/Number-Block</description>
+    </item>
+    
+    <item>
+      <title>Portfolio作ってみた</title>
+      <link>https://sunagimon.github.io/blog/hajimeta/</link>
+      <pubDate>Tue, 15 Jan 2019 23:32:27 +0900</pubDate>
+      
+      <guid>https://sunagimon.github.io/blog/hajimeta/</guid>
+      <description> Portfolioを作ってみた. 理由は自己満である. これまでPortfolioの存在は知らなかった. 大学院生になり, 周りの生粋のCreatorやEngineer気質の学生たちがこぞって作っているのを見た. はじめはただの自己紹介サイトだと思った. しかし, よく見るとどれも個性的であり, 自由で面白い. 経歴を列挙したものもあれば, 手がけた作品をまとめたもの, はたまた自身の考えを淡々と述べたものなどである.
+そもそもPortfolioの言葉の由来を調べてみると
+イタリア語のPortafoglioに由来し, Porta「運ぶ」+ foglio「紙」 = 書類入れであるらしい. 某転職サイトではこれを「書類を綴じない＝内容物をひとまとめにしながらも部分的に差し替えることを前提にしているため, 提示する相手と状況に応じ内容を差し替えるもの」だと紹介していた. 事実, 多くのPortfolioがそのようなものであり, 私も機会があれば求められるものを作成するであろう. しかし, ここでは求められていない. ここでは言葉通りの
+自由な書類入れ を作ろうと思う
+誰のためでもなく, 自分のために作っていこうと思う. SNSなどではなく, 誰が見ているかわからないネットの海にこのような駄文を垂れ流すのは実に気持ちが良い.
+そんな感じで飽きるまで続きたいと思う. </description>
     </item>
     
   </channel>

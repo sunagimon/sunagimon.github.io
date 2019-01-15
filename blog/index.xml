@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Takuto Ukawa&#39;s Portfolio</title>
+    <title>Blog on Takuto Ukawa (宇川 拓人)&#39;s Portfolio</title>
     <link>https://sunagimon.github.io/blog/</link>
-    <description>Recent content in Blog on Takuto Ukawa&#39;s Portfolio</description>
+    <description>Recent content in Blog on Takuto Ukawa (宇川 拓人)&#39;s Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate>
@@ -12,13 +12,17 @@
     
     
     <item>
-      <title>Test</title>
-      <link>https://sunagimon.github.io/blog/test/</link>
-      <pubDate>Sun, 15 Jul 2018 12:27:38 +0600</pubDate>
+      <title>Portfolio作ってみた</title>
+      <link>https://sunagimon.github.io/blog/hajimeta/</link>
+      <pubDate>Tue, 15 Jan 2019 23:32:27 +0900</pubDate>
       
-      <guid>https://sunagimon.github.io/blog/test/</guid>
-      <description>aaaa
-bbbbbb</description>
+      <guid>https://sunagimon.github.io/blog/hajimeta/</guid>
+      <description> Portfolioを作ってみた. 理由は自己満である. これまでPortfolioの存在は知らなかった. 大学院生になり, 周りの生粋のCreatorやEngineer気質の学生たちがこぞって作っているのを見た. はじめはただの自己紹介サイトだと思った. しかし, よく見るとどれも個性的であり, 自由で面白い. 経歴を列挙したものもあれば, 手がけた作品をまとめたもの, はたまた自身の考えを淡々と述べたものなどである.
+そもそもPortfolioの言葉の由来を調べてみると
+イタリア語のPortafoglioに由来し, Porta「運ぶ」+ foglio「紙」 = 書類入れであるらしい. 某転職サイトではこれを「書類を綴じない＝内容物をひとまとめにしながらも部分的に差し替えることを前提にしているため, 提示する相手と状況に応じ内容を差し替えるもの」だと紹介していた. 事実, 多くのPortfolioがそのようなものであり, 私も機会があれば求められるものを作成するであろう. しかし, ここでは求められていない. ここでは言葉通りの
+自由な書類入れ を作ろうと思う
+誰のためでもなく, 自分のために作っていこうと思う. SNSなどではなく, 誰が見ているかわからないネットの海にこのような駄文を垂れ流すのは実に気持ちが良い.
+そんな感じで飽きるまで続きたいと思う. </description>
     </item>
     
   </channel>
