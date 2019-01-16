@@ -44,7 +44,7 @@ Link 東京大学制作展 &amp;ldquo;Dest-logy&amp;rdquo; REBUILD
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunagimon.github.io/portfolio/conversation/</guid>
-      <description>coming soon</description>
+      <description> Tech ARKit2.0を用い, マルチユーザー間で自身のプロフィール代わりのARオブジェクト共有することにより会話の向上を目指した. iPhone端末のカメラやマイクから盛り上がり度を判定し, それに応じて次の会話へ移行するよう促すなどアドバイスを表示する. Comment 某大手通信会社のインターンにて企画・制作したのであまり多くは語らない(問題あればすぐ消します). 社会が抱える問題を解決し, お金を生み出すというサービス業らしい着眼点で制作したのは新鮮であった. </description>
     </item>
     
     <item>
@@ -71,7 +71,8 @@ Link 東京大学制作展 Extra &amp;ldquo;Dest-logy&amp;rdquo;
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunagimon.github.io/portfolio/pazzle/</guid>
-      <description>Photo coming soon Tech coming soon Comment coming soon Link GitHub/Number-Block</description>
+      <description>Tech enchant.js+JavaScriptで開発したHTMLで動作する全く新しい対戦パズルゲーム. 2人のプレイヤーがテトリス形状のブロックを順に場に出し, パズルが置けなくなった終了時に得点の高いプレイヤーが勝利する. ブロックには1~4の数字が書かれており, 数字順に縦or横かでなぞることができればチェインシステムが発動し, 消滅し高得点が得られる. Comment シンプルなルールであるが, 互いの手札が見えるため戦略性が高いものとなった. そのため当時は必勝法が見つからずに, CPU実装を断念した.
+Link GitHub/Number-Block</description>
     </item>
     
     <item>
