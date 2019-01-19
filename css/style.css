@@ -530,7 +530,7 @@ figure {
 figure .img-wrapper {
   position: relative;
   overflow: hidden;
-  width: 300px;
+  width: 350px;
   height: 165px;
   object-fit: cover;
 }
