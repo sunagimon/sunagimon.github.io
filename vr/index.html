@@ -19,7 +19,7 @@
     <!-- Mobile Specific Metas -->
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Categories</title>
+    <title>VRLab</title>
     <link rel="icon" href="https://sunagimon.github.io/images/home/favicon.png">
 
     <!-- Twitter Bootstrs CSS -->
@@ -88,82 +88,50 @@
         </div>
     </div>
 </section>
+<!doctype html>
+<html>
+  <head>
+    
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+</head>
+  <body>
+    <a-scene>
+        
+        <a-curvedimage src="https://sunagimon.github.io/images/portfolio/vortex.jpg" radius="5.7" theta-length="40" height="3"
+                    rotation="0 230 0" position="0 0 0"scale="1.2 1.2 1.2" opacity="0.5"></a-curvedimage>
+        <a-curvedimage src="https://sunagimon.github.io/images/portfolio/conversation.png" radius="5.7" theta-length="40" height="3"
+                     rotation="0 75 0" position="0 3 0" opacity="0.5"></a-curvedimage>
+        <a-curvedimage src="https://sunagimon.github.io/images/portfolio/fiber.png" radius="5.7" theta-length="50" height="2.6"
+                    rotation="0 260 0" position="0 3 0" scale="0.6 0.6 0.6" opacity="0.5"></a-curvedimage>
+        <a-curvedimage src="https://sunagimon.github.io/images/portfolio/grot.png" radius="5.7" theta-length="45" height="3.02"
+                    rotation="0 90 0" position="0 0 0"scale="0.8 0.8 0.8" opacity="0.5"></a-curvedimage>
+        <a-curvedimage src="https://sunagimon.github.io/images/portfolio/penis.png" radius="5.7" theta-length="40" height="3"
+                rotation="0 40 0" position="0 0 0" scale="0.8 0.8 0.8" opacity="0.5"></a-curvedimage>
+        <a-curvedimage src="https://sunagimon.github.io/images/portfolio/puzzle.png" radius="5.7" theta-length="35" height="3"
+                rotation="0 290 0" position="0 0.5 0" scale="0.8 0.8 0.8" opacity="0.5"></a-curvedimage>
+        
+        <a-entity
+            position="0 2.5 -3"
+            geometry="primitive: plane; width: 5"
+            material="color: #EF2D5E"
+            text="color: white; align: center; font: dejavu;
+                  value: Sunagimon VR laboratory;">
+                  <a-animation
+                  attribute="rotation"
+                  from="0 -50 0"
+                  to="0 50 0"
+                  direction="alternate"
+                  dur="4000"
+                  repeat="indefinite"
+                  easing="ease">
+                </a-animation>
+        </a-entity>
 
-<!-- Global Page Section Start -->
-<section class="global-page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="block">
-                    <h2>Categories</h2>
-                    <ol class="breadcrumb list-inline text-center">
-                        <li class="list-inline-item">
-                            <a href="https://sunagimon.github.io">
-                                <i class="ion-ios-home"></i>
-                                Home &nbsp; &nbsp;/
-                            </a>
-                        </li>
-                        <li class="active list-inline-item">Categories</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Global Page Section End -->
-
-<section id="blog-full-width">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Footer Section Start -->
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p class="copyright">© 
-                    <span>
-                        <script>document.write(new Date().getFullYear())</script>
-                    </span>Takuto Ukawa | Powered by the 
-                    <a href="http://www.Themefisher.com" target="_blank">Themefisher</a>
-                </p>
-        </div>
-    </div>
-</footer>
-<!-- footer section end -->
-
-<!-- jquery -->
-<script src="https://sunagimon.github.io/plugins/jQurey/jquery.min.js"></script>
-<!-- Form Validation -->
-<script src="https://sunagimon.github.io/plugins/form-validation/jquery.form.js"></script>
-<script src="https://sunagimon.github.io/plugins/form-validation/jquery.validate.min.js"></script>
-<!-- slick slider -->
-<script src="https://sunagimon.github.io/plugins/slick/slick.min.js"></script>
-<!-- bootstrap js -->
-<script src="https://sunagimon.github.io/plugins/bootstrap/bootstrap.min.js"></script>
-<!-- wow js -->
-<script src="https://sunagimon.github.io/plugins/wow-js/wow.min.js"></script>
-<!-- slider js -->
-<script src="https://sunagimon.github.io/plugins/slider/slider.js"></script>
-<!-- Fancybox -->
-<script src="https://sunagimon.github.io/plugins/facncybox/jquery.fancybox.js"></script>
-<!-- template main js -->
-
-<script src="https://sunagimon.github.io/js/script.min.js"></script>
-<!-- google analitycs -->
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-132429975-1', 'auto');
-    ga('send', 'pageview');
-</script>
-</body>
-
+        
+        <a-entity light="type: directional; color: #fff; castShadow:true;"
+                position="0 10 10"></a-entity>
+        <a-sky src=https://sunagimon.github.io/images/vr/vr-back.jpg></a-sky>
+        <a-camera position="0 1.8 1.5"></a-camera>
+    </a-scene>
+  </body>
 </html>
