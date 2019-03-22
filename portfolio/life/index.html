@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
-    <meta name="description" content="ケセラセラ">
+    <meta name="description" content="LIFE (2019/03/17)">
     <meta name="author" content="sunagimon">
     <meta name="keywords" content="sunagimon">
     <meta property="og:title" content="TAKUTO UKAWA's Portfolio">
@@ -19,7 +19,7 @@
     <!-- Mobile Specific Metas -->
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolios</title>
+    <title>LIFE</title>
     <link rel="icon" href="https://sunagimon.github.io/images/home/favicon.png">
 
     <!-- Twitter Bootstrs CSS -->
@@ -85,110 +85,119 @@
     </div>
 </section>
 
-<!-- Global Page Section Start -->
+<!-- Page Header -->
 <section class="global-page-header">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="block">
-                    <h2>Portfolios</h2>
-                    <ol class="breadcrumb list-inline text-center">
-                        <li class="list-inline-item">
-                            <a href="https://sunagimon.github.io">
-                                <i class="ion-ios-home"></i>
-                                Home &nbsp; &nbsp;/
-                            </a>
-                        </li>
-                        <li class="active list-inline-item">Portfolios</li>
-                    </ol>
+                    <h2>LIFE</h2>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Global Page Section End -->
 
-<section id="blog-full-width">
+<!-- work details part start -->
+<section class="work-single">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/life/">LIFE</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
+                <div class="work-single-image">
+                    
+                    <img class="img-fluid w-100" src="https://sunagimon.github.io/images/portfolio/life.png" alt="work-single-image">
+                </div>
                 
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/daialog/">dAIalog</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
                 
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/vortex/">渦、それはパーティー</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
                 
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/conversation/">Augmented Conversation</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
+                <div class="work-single-content">
+                    
+
+<h1 id="movie">Movie</h1>
+
+<iframe width = "100%" height = "315" src="https://www.youtube.com/embed/er3s5WeyrrU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr />
+
+<h1 id="tech">Tech</h1>
+
+<p>Unityで制作し, WebGLでビルドしている. <br></p>
+
+<p>3D空間内でモン◯トのような引っ張り飛ばすアクションを実装するためにRayCastを使用し, Dragベクトルの計算をしている. <br></p>
+
+<pre><code>if(Input.GetMouseButton(0))
+{
+    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+    RaycastHit hit;
+    if(Physics.Raycast(ray, out hit, Mathf.Infinity) &amp;&amp; touch == true)
+    {
+        //ドラッグベクトル計算
+        dragVec = transform.position - hit.point;
+    }
+}
+</code></pre>
+
+<p>PC → NPCへの切り替えはInstantiate関数を使い, クローンオブジェクトを生み出し, 自身をDestroyしている. <br>
+コード上でも自身の死と新たな生の誕生を再現した. <br></p>
+
+<pre><code>GameObject dragPlayer = Instantiate(DragPlayer, transform.position, transform.rotation) as GameObject;
+Destroy(this.gameObject);
+</code></pre>
+
+<hr />
+
+<h1 id="comment">Comment</h1>
+
+<p>unityroomの1週間ゲームジャムで制作. <br>
+お題は「つながる」<br></p>
+
+<p>つながる「LIFE」<br>
+PCをNPCに引っ張りぶつけるとPCは消え, NPCはPCになる<br>
+ビデオゲームアートという世界ではPlayerの意思は「生」であるらしい<br>
+生き物が行う「生をつなぐ」という行為をゲームのキャラにやらせたみた<br></p>
+
+<p>アリストテレスの目的論になぞらえて恵みを与えるために雨を降らせなるなど, 世界観やコンテクストにこだわった. <br></p>
+
+<p>直前にビデオゲームアート展(ICC | イン・ア・ゲームスケープ)に行った影響を強く受けている. <br>
+哲学的自己満ゲーム. <br>
+レンダリングパスを上手く設定しないとPointLightが消えるなど, Unity → WebGLを闇の深さを感じられる作品でもあった. <br></p>
+
+<hr />
+
+<h1 id="link">Link</h1>
+
+<p><a href= https://unityroom.com/games/life target=”_blank”>unityroom_LIFE</a></p>
+
+                </div>
                 
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/ochimpo/">ESS for PS by motion sensor</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
+            </div>
+            <div class="col-lg-4">
                 
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/grot/">GRot the Hand</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
-                
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/fiber/">光ファイバ3Dディスプレイ</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
-                
-                <article class="wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
-                    <div class="blog-content">
-                        <h2 class="blogpost-title">
-                            <a href="https://sunagimon.github.io/portfolio/pazzle/">Number-Block</a>
-                        </h2>
-                        <div class="blog-meta">
-                            Monday, Jan 1, 0001
-                </article>
-                
+                <div class="work-single-sidebar">
+                    
+                    <h5>Creator</h5>
+                    <h6>宇川拓人</h6>
+                    
+                    
+                    <h5>Date</h5>
+                    <h6>March 17, 2019</h6>
+                    
+                    
+                    <h5>Media</h5>
+                    <h6>unity1week_20190311</h6>
+                    
+                </div>
             </div>
         </div>
     </div>
 </section>
+<!-- work details part end -->
+
 <!-- Footer Section Start -->
 <footer id="footer">
     <div class="container">
