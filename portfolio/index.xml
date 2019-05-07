@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>ぬりぬりタウン</title>
+      <link>https://sunagimon.github.io/portfolio/nurinuri/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sunagimon.github.io/portfolio/nurinuri/</guid>
+      <description>Movie  Tech Unityで実装している.
+オブジェクトはBlenderでモデリングし, 射影のUVマップを塗り絵の台紙とした. 塗られた絵はOpenCV for Unityの矩形検出アルゴリズムとArUcoを用いてマーカーを区別しスキャンされ, オブジェクトへとラッピングしている. 3画面に投影するため, 斜めの投影行列を考慮した3台のカメラをUnity内に配置した. Comment 紙に描かれた人や動物, 建物, UFOなどのオブジェクトを好きな色に塗り, スクリーン内の街へと映し出す. 映し出されたオブジェクトはアニメーションしながら動き, 一定時間経つとしぼんで消える. 技術的にはよく見るもの. 今回は児童会館の依頼で小学生や幼児向けのため, シンプルかつ子ども向けのデザインにこだわった. プロジェクターが光るだけで喜ぶ子がいるなど, 微笑ましかった. Link フレンドリープラザ墨田児童会館「小学生こどもの日スペシャル」</description>
+    </item>
+    
+    <item>
       <title>LIFE</title>
       <link>https://sunagimon.github.io/portfolio/life/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
