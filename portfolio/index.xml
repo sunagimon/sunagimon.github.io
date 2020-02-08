@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Bubble-Pixels</title>
+      <link>https://sunagimon.github.io/portfolio/bubble/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sunagimon.github.io/portfolio/bubble/</guid>
+      <description>Movie   Tech 水中にある超撥水素材の表面に気泡が定着する原理を利用している. 超撥水面の傾斜と空気の吹き込み量を調整することで気泡を水平方向に移動させる. 気泡を配置し, 気泡を画素としたイメージを描画する. 超撥水板の四隅にユニバーサルジョイントを介して上下方向に動くラックギアを接続している. ギヤードモータの回転を制御することでギアの位置が決まるラックピニオン機構を採用し, 板の傾斜を調整している. 気泡の吹き込み/吸い込みは蠕動ポンプを使用している. ArduinoによりギヤードモータはPID制御, 蠕動ポンプはPWM制御をして動かしている.  Comment 水平方向に移動する気泡を画素としたディスプレイ. 修士の研究テーマである. 「水ディスプレイの特性」と「気泡の特性」を同時に発揮可能な新たなインタフェースの創出を目指して提案・設計した. 研究室配属前から「新しいディスプレイを創りたい」という意気込みを語っていたが, それ通りの研究を行うことができた. 先生に感謝です.  Link 小川剛史</description>
+    </item>
+    
+    <item>
       <title>ぬりぬりタウン</title>
       <link>https://sunagimon.github.io/portfolio/nurinuri/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
