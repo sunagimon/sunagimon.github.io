@@ -38,6 +38,11 @@ a:hover {
   text-decoration: none;
 }
 
+a:link { color: rgb(65, 29, 29); }
+a:visited { color: #333; }
+a:hover { color: #ff0000; }
+a:active { color: #ff8000; }
+
 .slick-slide:focus {
   outline: 0;
 }
@@ -191,14 +196,14 @@ a:hover {
   background: #fff;
   color: #fff;
   transition: all 0.2s ease-out 0s;
-  padding: 15px 0;
+  padding: 0px 0;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid #dedede;
   z-index: 10;
 }
 
 .top-bar.animated-header {
-  padding: 20px 0;
+  padding: 0px 0;
   background: #fff;
   box-shadow: none;
 }
@@ -324,7 +329,7 @@ img.img-circle {
   color: #333;
   font-weight: 700;
   margin-bottom: 15px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 #hero-area h2 {
