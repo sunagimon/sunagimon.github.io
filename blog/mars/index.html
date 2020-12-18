@@ -99,7 +99,7 @@
             <div class="col-md-12">
                 
                 <div class="post-content">
-                    <p>これはアドベントカレンダー <a href="https://adventar.org/calendars/5825" target="_blank">ほぼ厚木の民</a> の19日目記事です。</p>
+                    <p>これはアドベントカレンダー <u><a href="https://adventar.org/calendars/5825" target="_blank">ほぼ厚木の民</a></u> の19日目記事です。</p>
 <h4 id="概要">概要</h4>
 <p>iPhone 12 Pro (LiDAR) を使い空間スキャンし得られた現実環境3DモデルとUnity MARSでお手軽に仮想実環境ARシミュレーションをしてみた. <br></p>
 <h4 id="arのシミュレーションはめんどう">ARのシミュレーションはめんどう</h4>
@@ -111,7 +111,7 @@ ARアプリ開発では実機にビルドし, 現実環境へカメラを向け�
 さらにアプリをとある会場で使うとなれば現地に赴き, そこでの動作確認が必要である. <br>
 これはめんどうだ. <br></p>
 <h4 id="unity-marsってなに">Unity MARSってなに</h4>
-<p><a href="https://unity.com/products/unity-mars" target="_blank">Unity MARS</a>は2020年6月にリリースされた新しいAR開発フレームワークだ. <br>
+<p><u><a href="https://unity.com/products/unity-mars" target="_blank">Unity MARS</a></u>は2020年6月にリリースされた新しいAR開発フレームワークだ. <br>
 ARKitやARCoreなどをさらに抽象化し誰でも使えるようにしている. <br></p>
 <p><img src="https://sunagimon.github.io/images/blog/mars/mars_system.jpg" width="50%" height="50%"><br></p>
 <p>Unity MARS最大の特徴(私が思う)は仮想環境でのシミュレーションが可能という点である. <br>
@@ -129,7 +129,7 @@ ARKitやARCoreなどをさらに抽象化し誰でも使えるようにしてい
 これにより任意の現実環境でのARシミュレーションがいつでもどこでも簡単に行える. <br></p>
 <h4 id="仮想実環境arシミュレーション準備編">仮想実環境ARシミュレーション準備編</h4>
 <p>まずは現実環境の3Dモデル化をする. <br>
-iPhone 12 Proで<a href="https://apps.apple.com/jp/app/3d-scanner-app/id1419913995" target="_blank">3D Scanner App</a>を使用しスキャン, 3Dモデルの生成を行った. <br>
+iPhone 12 Proで<u><a href="https://apps.apple.com/jp/app/3d-scanner-app/id1419913995" target="_blank">3D Scanner App</a></u>を使用しスキャン, 3Dモデルの生成を行った. <br>
 意外なことにApple純正のLiDARアプリはない(ないですよね？). <br>
 今回は評判が良い3rd party製の無料アプリを使ってみた. <br></p>
 <p>自室のスキャン中の様子である. <br>
@@ -148,8 +148,8 @@ dToFではなく, 受信光の位相差を測定するiToF方式であればも�
 <p><img src="https://sunagimon.github.io/images/blog/mars/scan_room1.jpg" width="30%" height="30%"><br></p>
 <p><img src="https://sunagimon.github.io/images/blog/mars/scan_room2.jpg" width="30%" height="30%"><br></p>
 <p>続いてUnity MARS側の準備へ移る. <br>
-詳しい導入手順や説明は<a href="https://youtu.be/9h5TUiIf-Ks" target="_blank">Unity Japan公式のセミナー</a>参照. <br>
-あと, <a href="https://docs.unity3d.com/Packages/com.unity.mars@1.2/manual/index.html" target="_blank">公式ドキュメント</a>が充実しているのでここを見ればだいたいのことが書いてあります. ( <del>私のこの記事いらない</del> )<br></p>
+詳しい導入手順や説明は<u><a href="https://youtu.be/9h5TUiIf-Ks" target="_blank">Unity Japan公式のセミナー</a></u>参照. <br>
+あと, <u><a href="https://docs.unity3d.com/Packages/com.unity.mars@1.2/manual/index.html" target="_blank">公式ドキュメント</a></u>が充実しているのでここを見ればだいたいのことが書いてあります. ( <del>私のこの記事いらない</del> )<br></p>
 <p>Unity 2019.3.15f1 (2019.3.xならOK) で新規プロジェクトを作成し, Unity MARSを導入する. <br>
 今回実装するARアプリは平面を検出し3Dオブジェクトを出現させるシンプルなものである. <br>
 Unity MARSでは驚くほど簡単な手順で実装できる. <br></p>
