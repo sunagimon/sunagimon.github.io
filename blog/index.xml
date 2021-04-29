@@ -6,11 +6,7 @@
     <description>Recent content in Blog on Takuto Ukawa | 宇川 拓人 Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate>
-    
-	<atom:link href="https://sunagimon.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate><atom:link href="https://sunagimon.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>仮想実環境ARシミュレーションしてみた話</title>
       <link>https://sunagimon.github.io/blog/mars/</link>

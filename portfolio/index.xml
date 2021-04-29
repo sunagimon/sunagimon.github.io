@@ -6,11 +6,7 @@
     <description>Recent content in Portfolio on Takuto Ukawa | 宇川 拓人 Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate>
-    
-	<atom:link href="https://sunagimon.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate><atom:link href="https://sunagimon.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bubble-Pixels</title>
       <link>https://sunagimon.github.io/portfolio/bubble/</link>
@@ -108,7 +104,7 @@ Grow or Rot ??
 この作品では、私たちの手がどのような変貌を遂げるのかを表現しました。
  Tech 箱に手を入れるとディスプレイに手が表示される. 浮かび上がる球状の概念を触ることにより, それが持つ属性を自身の手に宿す. LeapMotionを用いて手の動きをセンシングし, Unity上で手や概念球をレンダリングしている.
  Comment 人間とテクノロジーの変容過程を問いている. 奥が見えない箱 + その先を表現した映像はHMDを使わずとも自己所有感や自己主体感を高めることができた. 概念級の触覚フィードバックを考えていたが, センサーの精度が低下するため断念した.
- Link 東京大学制作展 Extra &amp;ldquo;Dest-logy&amp;quot;
+ Link 東京大学制作展 Extra &amp;ldquo;Dest-logy&amp;rdquo;
 小沢健悟
 たか友康</description>
     </item>
@@ -128,8 +124,7 @@ Grow or Rot ??
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sunagimon.github.io/portfolio/pazzle/</guid>
-      <description>Tech enchant.js+JavaScriptで開発したHTMLで動作する全く新しい対戦パズルゲーム. 2人のプレイヤーがテトリス形状のブロックを順に場に出し, パズルが置けなくなった終了時に得点の高いプレイヤーが勝利する. ブロックには1~4の数字が書かれており, 数字順に縦or横かでなぞることができればチェインシステムが発動し, 消滅して高得点が得られる.  Comment シンプルなルールであるが, 互いの手札が見えるため戦略性が高いものとなった. そのため当時は必勝法が見つからずCPUの実装を断念した.
- Link GitHub/Number-Block</description>
+      <description>Tech enchant.js+JavaScriptで開発したHTMLで動作する全く新しい対戦パズルゲーム. 2人のプレイヤーがテトリス形状のブロックを順に場に出し, パズルが置けなくなった終了時に得点の高いプレイヤーが勝利する. ブロックには1~4の数字が書かれており, 数字順に縦or横かでなぞることができればチェインシステムが発動し, 消滅して高得点が得られる.  Comment シンプルなルールであるが, 互いの手札が見えるため戦略性が高いものとなった. そのため当時は必勝法が見つからずCPUの実装を断念した.</description>
     </item>
     
   </channel>
