@@ -235,7 +235,7 @@ img.img-circle {
   font-weight: 500;
   transition: .3s all;
   text-transform: uppercase;
-  padding: 5px 15px;
+  padding: 8px 15px;
   display: block;
 }
 
@@ -414,7 +414,7 @@ img.img-circle {
 
 #call-to-action  .social li {
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 21px;
 }
 
 #call-to-action  .social li a {
