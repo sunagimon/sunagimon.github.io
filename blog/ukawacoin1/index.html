@@ -170,7 +170,7 @@ nonceはNumber used onceの略でそのブロックのマイニング時に発�
         <span style="color:#66d9ef">return</span> hashlib<span style="color:#f92672">.</span>sha256(sorted_block<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sample_connect_block</span>(self):
-        <span style="color:#960050;background-color:#1e0010">＃</span> <span style="color:#960050;background-color:#1e0010">ブロック生成</span>
+        <span style="color:#75715e"># ブロック生成</span>
         self<span style="color:#f92672">.</span>_create_block(nonce, pre_hash<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>_get_block_hash(self<span style="color:#f92672">.</span>block_chain[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]))
 </code></pre></div><p>BitcoinではSHA-256というハッシュ関数が使用されている. <br>
 Secure Hash Algorithm 256-bitの略であり, その名の通り32bit長のハッシュ値が得られる. <br></p>
@@ -194,7 +194,7 @@ PoSではPoWが計算量（仕事）に対し報酬が与えられるのに対�
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_check_block_valid</span>(
         self, transactions, pre_hash, nonce, difficulty<span style="color:#f92672">=</span>MINING_DIFFICULTY
     ):
-        <span style="color:#960050;background-color:#1e0010">＃</span> <span style="color:#960050;background-color:#1e0010">ブロックの</span>nonceがdifficultyの条件を満たす妥当なものか確認
+        <span style="color:#75715e"># ブロックのnonceがdifficultyの条件を満たす妥当なものか確認</span>
         guess_block <span style="color:#f92672">=</span> OrderedDict()
         guess_block <span style="color:#f92672">=</span> {
             <span style="color:#e6db74">&#34;transactions&#34;</span>: transactions,
