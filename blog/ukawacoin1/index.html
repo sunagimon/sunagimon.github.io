@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="description" content="2021,1,9">
+    <meta name="author" content="sunagimon">
+    <meta name="generator" content="Hugo 0.82.1" />
+    
+    <!-- Mobile Specific Metas -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ukawacoinから学ぶブロックチェーン技術</title>
+    <link rel="icon" href="https://sunagimon.github.io/images/home/favicon.ico">
+    <link rel="apple-touch-icon" href="https://sunagimon.github.io/images/home/favicon_mobile.png"sizes="180x180">
+    <link rel="icon" type="image/png" href="https://sunagimon.github.io/images/home/favicon_mobile.png"sizes="192x192">
+
+    <meta name="p:domain_verify" content="e6043d8eef13237212623c24630bc34d"/>
+  
+    <!-- Twitter Bootstrs CSS -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/bootstrap/bootstrap.min.css">
+    <!-- Ionicons Fonts Css -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/ionicons/ionicons.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/animate-css/animate.css">
+    <!-- Hero area slider css-->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/slider/slider.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/slick/slick.css">
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/facncybox/jquery.fancybox.css">
+    <!-- hover -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/hover/hover-min.css">
+    <!-- template main css file -->
+    
+    <link rel="stylesheet" href="https://sunagimon.github.io/css/style.min.css" integrity="" media="screen">
+  </head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="https://sunagimon.github.io">
+                        <img src="https://sunagimon.github.io/images/home/logo.svg" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://sunagimon.github.io">Home</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#about">About</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#works-jump">Works</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#call-to-action">Contact</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/blog">Blog</a>
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>Ukawacoinから学ぶブロックチェーン技術</h2>
+                    <div class="portfolio-meta">
+                        <span>Sunday, Jan 9, 2022</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-content">
+                    <p>うかわです. <br>
+アドベンドカレンダー<a href="https://sites.google.com/view/hobotamiadvent/home" target="_blank">「ほぼ横浜の民 Advent Calendar 2021」</a><br>
+9日目の記事になります. <br></p>
+<h2 id="0-ukawacoin-wallet">0. Ukawacoin Wallet</h2>
+<p>実装したUkawacoinです. <br>
+詳細は記事をご覧ください. <br>
+アドレスを教えてもらえれば送金します. <br>
+ぜひ使ってみてください. <br></p>
+<p><a href="https://ukawacoin-wallet.herokuapp.com" target="_blank">Ukawacoin wallet1</a><br>
+<a href="https://ukawacoin-0001-wallet.herokuapp.com" target="_blank">Ukawacoin wallet2</a><br></p>
+<h2 id="1-はじめに">1. はじめに</h2>
+<p>近頃, Bitcoinをはじめとした暗号資産の高騰やNFTアートが6900万$という高値で落札されたなどのニュースを背景にブロックチェーンへの注目が以前よりも高まっているように思える. <br>
+また, ブロックチェーン自体もLightning NetworkやPoS等の省エネルギーな合意方式の導入など実用性の改善が日々進められ, 様々な分野での応用が期待されている. <br>
+私は昔から暗号資産の取引やNFTゲームなどを楽しんできたが, その根底にあるブロックチェーンについては概念レベルの理解しかできていなかった. <br>
+トレンドのこの技術について今さらながら教養として, また, 将来に向けてお勉強しようと思った次第である. <br>
+この記事では簡易的なブロックチェーンによるオリジナル暗号通貨を実装するとともに, コードレベルで主要なアルゴリズムを紹介する. <br></p>
+<h2 id="2-ブロックチェーンとは">2. ブロックチェーンとは</h2>
+<p>ブロックチェーンとはデータベース技術の一種である. <br>
+ブロック単位で情報を記録し, 時系列に沿ってブロックが新たに生成される際には一つ前のブロックの内容がハッシュ値として格納される. <br>
+ハッシュ値は任意のビット列から規則性のない固定長のビット列を生成するハッシュ計算により得られる. <br>
+ハッシュ値を得ることは容易であり, 同じ入力値からは同じ結果が出力される. <br>
+しかし, ハッシュ値から元の入力値を予測することは非常に困難である. <br>
+このため過去のデータを改竄しようと試みる際は変更を加えたブロック以降のハッシュ値を計算し直す必要がある. <br>
+また, ブロックチェーンはネットワークに参加する全ての人が同一の記録を共有する分散型の台帳により管理されるため後続する全てのブロックが間違いであることを証明するのは難しい. <br>
+ブロックチェーンと一口に言っても現在は多くのモデル(パブリック型, コンソーシアム型, プライベート型 etc&hellip;)が提唱されているがいずれも対改竄性, 透明性, 追跡可能性などの特徴が見られる. <br>
+この技術を基盤とし, ユーザ間で取引履歴を記録する暗号通貨や契約や取引などを自動化するスマートコントラクトなどが成立しているのである. <br></p>
+<p>前置きが長くなったがここまでがよくある概念的な説明だ. <br>
+ここからは実装を交えて説明する. <br>
+今回は元祖とも言えるBitcoinのブロックチェーンに倣い, オリジナル暗号通貨のUkawacoinを作成する. <br></p>
+<h2 id="3-ukawacoinの実装">3. Ukawacoinの実装</h2>
+<p>※現時点でUkawacoinは開発版, 勉強用であり販売目的はない. <br></p>
+<h3 id="ブロックとハッシュ">~ブロックとハッシュ~</h3>
+<p>BitcoinはC++で作成されているが, 今回はPythonを使用する. <br>
+ハッシュ関数や公開鍵暗号署名など必要なライブラリが充実しているためお試しに良い. <br></p>
+<p>まずはハッシュ値で繋がれたブロックデータ構造ついて<br></p>
+<pre><code>class BlockChain():
+    def __init__(self):
+        self.transactions = []
+        self.block_chain = []   # ブロックチェーンデータ
+
+    def _create_block(self, nonce, pre_hash):
+        # ブロックに情報を格納しチェーンへ追加
+        block = OrderedDict()
+        block = {
+            &quot;timestamp&quot;: time.time(),
+            &quot;transactions&quot;: self.transactions,
+            &quot;nonce&quot;: nonce,
+            &quot;pre_hash&quot;: pre_hash,
+        }
+        self.block_chain.append(block)
+        self.transactions = []
+        return block
+</code></pre><p>ブロックは4つの情報を格納している. <br></p>
+<ol>
+<li>タイムスタンプ</li>
+<li>取引履歴</li>
+<li>nonce</li>
+<li>直前のブロックのハッシュ値</li>
+</ol>
+<p>Bitcoinでは約10分に一つ新たなブロックが生成されるよう調整がされている. <br>
+タイムスタンプはブロックが生成された時間である. <br>
+取引履歴はそのブロック内でのユーザ達の通貨送受信情報の記録である. <br>
+nonceはNumber used onceの略でそのブロックのマイニング時に発見されたランダムな32ビットの値である(詳細は後ほど). <br>
+重要なのが直前のブロックのハッシュ値である. <br>
+以下のようにブロック生成時に直前のブロックのハッシュ値を格納することでチェーンのように全てのブロックが繋がる. <br></p>
+<pre><code>    def _get_block_hash(self, block):
+        # ブロックデータをSHA-256によりハッシュ化し返す
+        sorted_block = json.dumps(block, sort_keys=True)
+        return hashlib.sha256(sorted_block.encode()).hexdigest()
+
+    def sample_connect_block(self):
+        ＃ ブロック生成
+        self._create_block(nonce, pre_hash=self._get_block_hash(self.block_chain[-1]))
+</code></pre><p>BitcoinではSHA-256というハッシュ関数が使用されている. <br>
+Secure Hash Algorithm 256-bitの略であり, その名の通り32bit長のハッシュ値が得られる. <br></p>
+<h3 id="マイニング">~マイニング~</h3>
+<p>続いては, コンセンサスアルゴリズムの一種であるProof of Work：PoWについて <br>
+BitcoinではPoWを利用しブロックの生成及び結合作業であるマイニングを行なっている. <br>
+具体的にはマイナーは直前のブロックのハッシュ値にnonce加え, 出力されたハッシュ値の先頭に0が一定数並んでいるかを確認する. <br>
+もし0が一定数以上並ぶnonceを発見できればブロックが生成される. <br>
+必要な0の個数はdifficultyと呼ばれ, これによりブロック生成時間が調整される. <br>
+生成されたブロックは分散された他ノードによって正当性が検証され, 有効であれば他ノードのチェーンへ追加される. <br>
+そしてマイナーには報酬として通貨が発行されて与えられる. <br>
+BitcoinのPoWには問題があることも知られている. <br>
+計算力の半分を取られた場合データが改竄される51%攻撃や, 1MBというブロックサイズのために1秒に6~7件しか取引を処理できないスケーラビリティ問題, ハッシュ計算には高い演算能力をもつASIC, FPGA, GPUをいくつも投入する必要があり膨大な電力が消費される問題などである. <br>
+こうした問題を背景に様々なアルトコインと呼ばれる暗号通貨がこれまで誕生してきた. <br>
+例えばBitcoin Cashはブロックサイズが32MBに設定され, 多くの取引を一度に処理することが可能である. <br>
+また, Proof of Stake：PoSというコンセンサスアルゴリズムを採用する暗号通貨も増えてきた. <br>
+PoSではPoWが計算量（仕事）に対し報酬が与えられるのに対し, 通貨の保有量や保有年数（投資）に応じて報酬が与えられる. <br>
+通貨の流動性が落ちるなどの課題はあるものの51%攻撃や電力消費問題の面で利点があると言える. <br>
+有名どころというとEthereumはPoWからPoSへと移行が予定されている. <br></p>
+<p>さて, これらの簡易な実装は以下のようになる. <br></p>
+<pre><code>    def _check_block_valid(
+        self, transactions, pre_hash, nonce, difficulty=MINING_DIFFICULTY
+    ):
+        ＃ ブロックのnonceがdifficultyの条件を満たす妥当なものか確認
+        guess_block = OrderedDict()
+        guess_block = {
+            &quot;transactions&quot;: transactions,
+            &quot;nonce&quot;: nonce,
+            &quot;pre_hash&quot;: pre_hash,
+        }
+        guess_hash = self._get_block_hash(guess_block)
+        return guess_hash[:difficulty] == &quot;0&quot; * difficulty
+
+    def _proof_of_work(self):
+        # 適当なnonceが発見されるまで総当たりで計算
+        transactions = self.transactions.copy()
+        pre_hash = self._get_block_hash(self.block_chain[-1])
+        nonce = 0
+        while self._check_block_valid(transactions, pre_hash, nonce) is False:
+            nonce += 1
+        print(&quot;SUCCESS MINING&quot;)
+        return nonce
+
+    def _mining(self):
+        # マイナーへの報酬を取引履歴に加えマイニング
+        self._add_transaction(
+            sender_address=MINING_SENDER,
+            recipient_address=self.blockchain_address,
+            value=MINING_REWARD,
+        )
+        nonce = self._proof_of_work()
+        pre_hash = self._get_block_hash(self.block_chain[-1])
+        self._create_block(nonce, pre_hash)
+        return True
+</code></pre><p>Bitcoinでは14日に一度自動的にdifficulty調整が行われるが, 今回はマシンパワーをそこまで使用したくなかったためdifficultyを固定し, マイニングが10分間隔で行われるなんちゃって実装をした. <br>
+報酬は &ldquo;1.0 UKC&rdquo; である. <br>
+また, ノード間での正当性検証については後ほど実装する. <br></p>
+<h3 id="ブロックチェーンアドレスと署名">~ブロックチェーンアドレスと署名~</h3>
+<p>暗号通貨の実態は通貨の取引情報記録である. <br>
+AさんがBさんへX量の通貨を送信したという記録の存在がBさんがX量のお金を保有を意味する. <br>
+では, 誰でも好き勝手に取引情報を記録し, 資産を増やすことができるのであろうか？それはできない. <br>
+ブロックチェーンでは署名という所有者であることを証明する数学的なメカニズムを利用することで, 署名が一致する所有情報のみ書き換えが可能である. <br></p>
+<p>署名を用いた暗号通貨の取引には公開鍵, 秘密鍵, アドレスが必要となる. <br>
+この3つの情報を合わせてWallet呼ぶ. <br>
+公開鍵, 秘密鍵は公開鍵暗号方式によって生成され, アドレスは公開鍵から作成される. <br>
+アドレスの作成方法は通貨の種類によって異なり, 差別化に繋がっている. <br>
+例えば  Bitcoinでは以下のプロセスによってアドレスが生成される. <br></p>
+<ol>
+<li>ECDSA (楕円曲線電子署名アルゴリズム)によって秘密鍵のペアとなる公開鍵を作成</li>
+<li>公開鍵をハッシュ関数SHA-256に通す</li>
+<li>ハッシュ関数RIPEMED-160に通す</li>
+<li>先頭にプレフィックスとして00を加える</li>
+<li>ハッシュ関数SHA-256pに2回通す</li>
+<li>4bytesのチェックサムを後ろに加える</li>
+<li>Base58でエンコード</li>
+</ol>
+<p>今回は同じ方式でアドレスを生成する. <br>
+hashlibやecdsaライブラリによって簡単に実装できる. <br></p>
+<pre><code>class Wallet():
+    def __init__(self):
+        self._private_key = SigningKey.generate(curve=NIST256p)
+        self._public_key = self._private_key.get_verifying_key()
+        self._blockchain_address = self._generate_blockchain_address()
+
+    def _generate_blockchain_address(self):
+        public_key_bytes = self._public_key.to_string()
+        # 公開鍵をハッシュ関数SHA-256に通す
+        sha256_bpk = hashlib.sha256(public_key_bytes)
+        sha256_bpk_digest = sha256_bpk.digest()
+
+        # ハッシュ関数RIPEMED-160に通す
+        ripemed160_bpk = hashlib.new(&quot;ripemd160&quot;)
+        ripemed160_bpk.update(sha256_bpk_digest)
+        ripemed160_bpk_digest = ripemed160_bpk.digest()
+        ripemed160_bpk_hex = codecs.encode(ripemed160_bpk_digest, &quot;hex&quot;)
+
+        # 先頭にプレフィックスとして00を加える
+        network_byte = b&quot;00&quot;
+        network_bitcoin_public_key = network_byte + ripemed160_bpk_hex
+        network_bitcoin_public_key_bytes = codecs.decode(
+            network_bitcoin_public_key, &quot;hex&quot;
+        )
+
+        # ハッシュ関数SHA-256pに2回通す
+        sha256_bpk = hashlib.sha256(network_bitcoin_public_key_bytes)
+        sha256_bpk_digest = sha256_bpk.digest()
+        sha256_2_nbpk = hashlib.sha256(sha256_bpk_digest)
+        sha256_2_nbpk_digest = sha256_2_nbpk.digest()
+        sha256_hex = codecs.encode(sha256_2_nbpk_digest, &quot;hex&quot;)
+
+        # 4bytesのチェックサムを後ろに加える
+        checksum = sha256_hex[:8]
+        address_hex = (network_bitcoin_public_key + checksum).decode(&quot;utf-8&quot;)
+
+        # Base58でエンコード
+        blockchain_address = base58.b58encode(address_hex).decode(&quot;utf-8&quot;)
+        return blockchain_address
+</code></pre><p>取引情報記録と署名について <br>
+ecdsaライブラリを使い, Transactionオブジェクトに渡された取引情報に署名をしている. <br></p>
+<pre><code>class Transaction():
+    def __init__(
+        self,
+        sender_private_key,
+        sender_public_key,
+        sender_address,
+        recipient_address,
+        value,
+    ):
+        self.sender_private_key = sender_private_key
+        self.sender_public_key = sender_public_key
+        self.sender_address = sender_address
+        self.recipient_address = recipient_address
+        self.value = value
+
+    def generate_signature(self):
+        # 取引情報に秘密鍵を用いて署名を行う
+        sha256 = hashlib.sha256()
+        transaction = OrderedDict()
+        transaction = {
+            &quot;sender_address&quot;: self.sender_address,
+            &quot;recipient_address&quot;: self.recipient_address,
+            &quot;value&quot;: float(self.value),
+        }
+        sha256.update(str(transaction).encode(&quot;utf-8&quot;))
+        message = sha256.digest()
+        private_key = SigningKey.from_string(
+            bytes().fromhex(self.sender_private_key), curve=NIST256p
+        )
+        private_key_sign = private_key.sign(message)
+        signature = private_key_sign.hex()
+        return signature
+</code></pre><p>署名の検証とブロックへの取引情報の追加について<br>
+先ほど同様にecdsaライブラリを使い, 署名を検証し正しい場合のみ取引情報プールへ取引を追加している. <br></p>
+<pre><code>    def _verify_signature(self, sender_public_key, signature, transaction):
+        # 取引情報の署名を公開鍵で検証
+        sha256 = hashlib.sha256()
+        sha256.update(str(transaction).encode(&quot;utf-8&quot;))
+        message = sha256.digest()
+        signature_bytes = bytes().fromhex(signature)
+        verifying_key = VerifyingKey.from_string(
+            bytes().fromhex(sender_public_key), curve=NIST256p
+        )
+        verified_key = verifying_key.verify(signature_bytes, message)
+        return verified_key
+
+    def _add_transaction(
+        self,
+        sender_address,
+        recipient_address,
+        value,
+        sender_public_key=None,
+        signature=None,
+    ):
+        transaction = OrderedDict()
+        transaction = {
+            &quot;sender_address&quot;: sender_address,
+            &quot;recipient_address&quot;: recipient_address,
+            &quot;value&quot;: float(value),
+        }
+        if sender_address == MINING_SENDER:
+            # マイニング報酬は署名検証無視
+            self.transactions.append(transaction)
+            return True
+        if self._verify_signature(sender_public_key, signature, transaction):
+            # 署名検証が正しい場合は取引情報を取引情報プールへ追加
+            if self.calculate_total_amount(sender_address) &lt; float(value):
+                # 残高不足は取引不成立
+                return False
+            self.transactions.append(transaction)
+            return True
+        return False
+</code></pre><p>ここまでの実装で署名を用いた取引情報の記録とPoWを利用したマイニングが実現できた. <br>
+ここからはブロックチェーンの管理とマイニングを行うノードを立ち上げネットワークを構成する. <br></p>
+<h3 id="ブロックチェーンネットワーク">~ブロックチェーンネットワーク~</h3>
+<p>先ほど述べたようにブロックチェーンは分散型の台帳により管理されるため各ノード及びそのネットワークを構築する必要がある. <br>
+今回, PythonのWebフレームワークFlaskにより作成したアプリをHerokuによりデプロイしネットワークを構築した. <br>
+UkawacoinのマイニングはCPUで可能であることと, ノードを増やしやすいとのことでPaaSを利用した. <br>
+本当はAWSを使いS3などにブロックチェーンデータを入れたかったが, 恒久的な無料枠の範囲では難しかったためHerokuを使わせてもらった. <br>
+Herokuの無料枠では使用量の制限やメンテナンス等で落ちることも多々あるが, 分散ノードなためどれかが無事であればUkawacoinは生きることができる. <br></p>
+<p>アプリケーション実装の細かな説明は省くが, 今回は以下のような分散型のネットワークを構成した. <br>
+ブロックチェーンの管理とマイニングを行うUkawacoinサーバはP2Pでそれぞれ接続される. <br>
+ユーザにWalletを提供するインタフェースとなるWalletサーバは任意のUkawacoinサーバへと接続される. <br></p>
+<p><img src="https://sunagimon.github.io/images/blog/ukawacoin1/ukawacoin_network.jpg" width="80%" height="80%"><br></p>
+<p>各ノード間のブロックの検証及び同期について　<br>
+あるノードから見て他ノードのブロックチェーンが長い場合はその正当性が検証される. <br>
+そして問題がない場合は自身のブロックチェーンへとブロックを追加する. <br>
+これにより不正なブロックを除くことやノード間のデータ同期が可能となっている. <br></p>
+<pre><code>    def _valid_chain(self, chain):
+        # nonceが正しいものであるかを確認しチェーンの正当性を検証
+        pre_block = chain[0]
+        current_index = 1
+        while current_index &lt; len(chain):
+            block = chain[current_index]
+            if block[&quot;pre_hash&quot;] != self._get_block_hash(pre_block):
+                return False
+            if not self._check_block_valid(
+                block[&quot;transactions&quot;],
+                block[&quot;pre_hash&quot;],
+                block[&quot;nonce&quot;],
+                MINING_DIFFICULTY,
+            ):
+                return False
+            pre_block = block
+            current_index += 1
+        return True
+
+    def resolve_conflicts(self):
+        # 正当なチェーンでかつ自信が持つものより長ければ追加
+        longest_chain = None
+        max_length = len(self.block_chain)
+        for node in self.neighbours:
+            response = requests.get(f&quot;{node}/viewchain&quot;)
+            if response.status_code == 200:
+                response_json = response.json()
+                chain = response_json[&quot;chain&quot;]
+                chain_length = len(chain)
+                if chain_length &gt; max_length and self._valid_chain(chain):
+                    max_length = chain_length
+                    longest_chain = chain
+        if longest_chain:
+            self.block_chain = longest_chain
+            print(&quot;find other longest chain, replaced&quot;)
+            return True
+        return False
+</code></pre><p>今回は全てのノードで全てのデータを同期しマイニングまで行っているがBitcoinでは異なる役割を持つノードが存在する. <br>
+フルノードと呼ばれるものは要件を満たしている取引情報とブロックを承認している. <br>
+ほとんどのフルノードはサトシナカモトがリリースしたビットコインソフトウェアを実行している. <br>
+全てのブロックチェーン情報を保有したフルノードはフルアーカイブノードとして扱われる. <br>
+マイニングノードと呼ばれるものは文字通りマイニングを行うものである. <br>
+ライトノードではブロックの一部であるブロックヘッダのみを使用するものでモバイルWalletなどで使用される. <br>
+UkawacoinのWalletサーバ同様, フルノードへ依存する. <br></p>
+<p>ノードを追加する場合はピアとして見つけてもらう必要がある. <br>
+BitcoinではDNSシードというBitcoinノードのIPを提供するDNSコンテンツサーバを使用する方法がある. <br>
+DNSシードはBitcoinのコミュニティメンバーによって管理され, 動的なシードと静的なシードが提供されている. <br>
+Ukawacoinではお試しということもあり, あらかじめ用意した接続候補先へのレスポンスを確認し稼働しているものをピアとして設定する. <br>
+もし, ノードを追加する場合は候補先にあるアドレスを使用する必要がある. <br></p>
+<pre><code>def check_internet(url, timeout=5):
+    #  稼働し正常なレスポンスがあるかの確認
+    try:
+        response = urllib.request.urlopen(url).getcode()
+        if response == 200:
+            return True
+        return False
+    except urllib.error.HTTPError as ex:
+        print(ex)
+        return False
+
+def find_neighbours():
+    # 稼働しているノードをピアとして追加
+    neighbours = []
+    candidate_address_list = node_sheet.NODE_LIST
+    host_name = node_sheet.MY_NODE
+    print(&quot;find neighbour node process in &quot;, host_name)
+    for guess_address in candidate_address_list:
+        if guess_address == host_name:
+            continue
+        if check_internet(guess_address):
+            neighbours.append(guess_address)
+    return neighbours
+</code></pre><h2 id="4-ukawacoin--dev--完成">4. Ukawacoin -dev- 完成</h2>
+<p>Ukawacoinの開発版が完成した. <br>
+※以下のリンク情報は執筆時のものであり変更されてる可能性がある<br></p>
+<p>ノードは3つ立ち上げている. <br></p>
+<p><a href="https://ukawacoin.herokuapp.com" target="_blank">Ukawacoin fullnode</a><br>
+<a href="https://ukawacoin-0000.herokuapp.com" target="_blank">Ukawacoin 0000node</a><br>
+<a href="https://ukawacoin-0001.herokuapp.com" target="_blank">Ukawacoin 0001node</a><br></p>
+<p>Walletノードは2つ立ち上げている. <br></p>
+<p><a href="https://ukawacoin-wallet.herokuapp.com" target="_blank">Ukawacoin wallet1</a><br>
+<a href="https://ukawacoin-0001-wallet.herokuapp.com" target="_blank">Ukawacoin wallet2</a><br></p>
+<p>役割的には変わらないが&rsquo;Ukawacoin fullnode&rsquo;がフルノードのつもりだ. <br>
+&lsquo;Ukawacoin wallet1&rsquo;は&rsquo;Ukawacoin fullnode&rsquo;と紐付き, &lsquo;Ukawacoin wallet2&rsquo;は&rsquo;Ukawacoin 0001node&rsquo;と紐づいてる. <br>
+もちろんどのWalletを使用してもらってもデータは同期されるため問題ない. <br></p>
+<p>Walletのインタフェースについて説明する. <br>
+上部には自身のアドレスの保有資産がUKCを単位として表示される. <br>
+皆さんがアクセスした場合は”0 UKC”となっているはずだ. <br>
+Walletサーバへアクセスするたびにアドレス及び秘密鍵, 公開鍵が作成される. <br>
+これらの値は保存されないので手元に保存する必要がある. <br>
+下部には送金システムがある. <br>
+送金先のアドレスを入力し, 自身の保有資産内の量を入力しSendボタンを押すと送金される. <br>
+マイニングが完了し, 取引履歴がブロックチェーンに追加されると残高に反映されるはずだ. <br></p>
+<p><img src="https://sunagimon.github.io/images/blog/ukawacoin1/wallet_interface.jpg" width="80%" height="80%"><br></p>
+<p>今のところたった一人のマイナーである私が全てのコインを保有している状態だ. <br>
+もしUkawacoinが欲しいという人がいれば送金するのでアドレスを教えてもらいたい. <br>
+また, 知り合いでマイニングしてみたい人がいればアプリケーションを提供するので耳打ちください. <br></p>
+<p>あくまでこのコインはお勉強用であり開発段階である. <br>
+正式なUkawacoinの登場をお待ちあれ. <br></p>
+<h2 id="5-おわり">5. おわり</h2>
+<p>ブロックチェーン技術をコードレベルで眺めることでモヤモヤしていたところがスッキリ理解できた. <br>
+一方, 今回の実装は初期のものであり最近のブロックチェーン技術については触れることができていない. <br>
+また, オリジナル暗号通貨では所々実装を省いている. <br>
+今後もお勉強を続けて実用レベルのブロックチェーン作成したいと思う. <br></p>
+<h2 id="6-参考">6. 参考</h2>
+<p>Bitcoin関連
+<a href="https://bitcoin.org/">https://bitcoin.org/</a></p>
+<p>ブロックチェーン関連
+<a href="https://academy.binance.com/">https://academy.binance.com/</a></p>
+<p>ブロックチェーン実装関連
+<a href="https://www.udemy.com/share/1021OS3@bq1pVkFO6q03gNiNEY4--XDrYVmvl3r3q_VQX8krAe_XLDpun5KgvM6Deur94LdoEQ==/">https://www.udemy.com/share/1021OS3@bq1pVkFO6q03gNiNEY4--XDrYVmvl3r3q_VQX8krAe_XLDpun5KgvM6Deur94LdoEQ==/</a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call To Action Section Start -->
+<section id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">contact</h1>
+                    <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Please let me know if you need anything.</p>
+                </div>
+                    <!-- Social Media -->
+                    <ul class="social text-center text-md-center text-lg-center">
+                        <li>
+                            <a href="https://twitter.com/sngm_tk" targrt="_Blank" class="twitter">
+                                <i class="ion-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sngm_tk/" targrt="_Blank" class="instagram">
+                                <i class="ion-social-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/sngm_tk/" targrt="_Blank" class="pinterest">
+                                <i class="ion-social-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sunagimon" target="_Blank" class="github">
+                                <i class="ion-social-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCuQCam3WJuAbp9Ab37Lkvlw" target="_Blank" class="youtube">
+                                <i class="ion-social-youtube"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#46;&#117;&#107;&#97;&#119;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="mail">
+                                <i class="ion-android-mail"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Call To Action Section End -->
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">© 
+                    <span>
+                        <script>document.write(new Date().getFullYear())</script>
+                    </span>Takuto Ukawa | Powered by the 
+                    <a href="http://www.Themefisher.com" target="_blank">Themefisher</a>
+                </p>
+        </div>
+    </div>
+</footer>
+<!-- footer section end -->
+
+<!-- jquery -->
+<script src="https://sunagimon.github.io/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="https://sunagimon.github.io/plugins/form-validation/jquery.form.js"></script>
+<script src="https://sunagimon.github.io/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="https://sunagimon.github.io/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://sunagimon.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="https://sunagimon.github.io/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="https://sunagimon.github.io/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="https://sunagimon.github.io/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="https://sunagimon.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-132429975-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+
+</html></body>
+</html>
