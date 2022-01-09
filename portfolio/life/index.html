@@ -109,17 +109,17 @@
 <h1 id="tech">Tech</h1>
 <p>Unityで制作し, WebGLでビルドしている. <br></p>
 <p>3D空間内でモン◯トのような引っ張り飛ばすアクションを実装するためにRayCastを使用し, Dragベクトルの計算をしている. <br></p>
-<pre><code>if(Input.GetMouseButton(0))
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#66d9ef">if</span>(Input.GetMouseButton(<span style="color:#ae81ff">0</span>))
 {
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit hit;
-    if(Physics.Raycast(ray, out hit, Mathf.Infinity) &amp;&amp; touch == true)
+    <span style="color:#66d9ef">if</span>(Physics.Raycast(ray, <span style="color:#66d9ef">out</span> hit, Mathf.Infinity) &amp;&amp; touch == <span style="color:#66d9ef">true</span>)
     {
-        //ドラッグベクトル計算
-        dragVec = transform.position - hit.point;
+        <span style="color:#75715e">//ドラッグベクトル計算
+</span><span style="color:#75715e"></span>        dragVec = transform.position - hit.point;
     }
 }
-</code></pre><p>PC → NPCへの切り替えはInstantiate関数を使い, クローンオブジェクトを生み出し, 自身をDestroyしている. <br>
+</code></pre></div><p>PC → NPCへの切り替えはInstantiate関数を使い, クローンオブジェクトを生み出し, 自身をDestroyしている. <br>
 コード上でも自身の死と新たな生の誕生を再現した. <br></p>
 <pre><code>GameObject dragPlayer = Instantiate(DragPlayer, transform.position, transform.rotation) as GameObject;
 Destroy(this.gameObject);

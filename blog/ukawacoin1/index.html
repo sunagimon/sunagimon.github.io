@@ -134,24 +134,24 @@
 <p>BitcoinはC++で作成されているが, 今回はPythonを使用する. <br>
 ハッシュ関数や公開鍵暗号署名など必要なライブラリが充実しているためお試しに良い. <br></p>
 <p>まずはハッシュ値で繋がれたブロックデータ構造ついて<br></p>
-<pre><code>class BlockChain():
-    def __init__(self):
-        self.transactions = []
-        self.block_chain = []   # ブロックチェーンデータ
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BlockChain</span>():
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>transactions <span style="color:#f92672">=</span> []
+        self<span style="color:#f92672">.</span>block_chain <span style="color:#f92672">=</span> []   <span style="color:#75715e"># ブロックチェーンデータ</span>
 
-    def _create_block(self, nonce, pre_hash):
-        # ブロックに情報を格納しチェーンへ追加
-        block = OrderedDict()
-        block = {
-            &quot;timestamp&quot;: time.time(),
-            &quot;transactions&quot;: self.transactions,
-            &quot;nonce&quot;: nonce,
-            &quot;pre_hash&quot;: pre_hash,
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_create_block</span>(self, nonce, pre_hash):
+        <span style="color:#75715e"># ブロックに情報を格納しチェーンへ追加</span>
+        block <span style="color:#f92672">=</span> OrderedDict()
+        block <span style="color:#f92672">=</span> {
+            <span style="color:#e6db74">&#34;timestamp&#34;</span>: time<span style="color:#f92672">.</span>time(),
+            <span style="color:#e6db74">&#34;transactions&#34;</span>: self<span style="color:#f92672">.</span>transactions,
+            <span style="color:#e6db74">&#34;nonce&#34;</span>: nonce,
+            <span style="color:#e6db74">&#34;pre_hash&#34;</span>: pre_hash,
         }
-        self.block_chain.append(block)
-        self.transactions = []
-        return block
-</code></pre><p>ブロックは4つの情報を格納している. <br></p>
+        self<span style="color:#f92672">.</span>block_chain<span style="color:#f92672">.</span>append(block)
+        self<span style="color:#f92672">.</span>transactions <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">return</span> block
+</code></pre></div><p>ブロックは4つの情報を格納している. <br></p>
 <ol>
 <li>タイムスタンプ</li>
 <li>取引履歴</li>
@@ -164,15 +164,15 @@
 nonceはNumber used onceの略でそのブロックのマイニング時に発見されたランダムな32ビットの値である(詳細は後ほど). <br>
 重要なのが直前のブロックのハッシュ値である. <br>
 以下のようにブロック生成時に直前のブロックのハッシュ値を格納することでチェーンのように全てのブロックが繋がる. <br></p>
-<pre><code>    def _get_block_hash(self, block):
-        # ブロックデータをSHA-256によりハッシュ化し返す
-        sorted_block = json.dumps(block, sort_keys=True)
-        return hashlib.sha256(sorted_block.encode()).hexdigest()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_get_block_hash</span>(self, block):
+        <span style="color:#75715e"># ブロックデータをSHA-256によりハッシュ化し返す</span>
+        sorted_block <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>dumps(block, sort_keys<span style="color:#f92672">=</span>True)
+        <span style="color:#66d9ef">return</span> hashlib<span style="color:#f92672">.</span>sha256(sorted_block<span style="color:#f92672">.</span>encode())<span style="color:#f92672">.</span>hexdigest()
 
-    def sample_connect_block(self):
-        ＃ ブロック生成
-        self._create_block(nonce, pre_hash=self._get_block_hash(self.block_chain[-1]))
-</code></pre><p>BitcoinではSHA-256というハッシュ関数が使用されている. <br>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sample_connect_block</span>(self):
+        <span style="color:#960050;background-color:#1e0010">＃</span> <span style="color:#960050;background-color:#1e0010">ブロック生成</span>
+        self<span style="color:#f92672">.</span>_create_block(nonce, pre_hash<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>_get_block_hash(self<span style="color:#f92672">.</span>block_chain[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]))
+</code></pre></div><p>BitcoinではSHA-256というハッシュ関数が使用されている. <br>
 Secure Hash Algorithm 256-bitの略であり, その名の通り32bit長のハッシュ値が得られる. <br></p>
 <h3 id="マイニング">~マイニング~</h3>
 <p>続いては, コンセンサスアルゴリズムの一種であるProof of Work：PoWについて <br>
@@ -191,41 +191,41 @@ PoSではPoWが計算量（仕事）に対し報酬が与えられるのに対�
 通貨の流動性が落ちるなどの課題はあるものの51%攻撃や電力消費問題の面で利点があると言える. <br>
 有名どころというとEthereumはPoWからPoSへと移行が予定されている. <br></p>
 <p>さて, これらの簡易な実装は以下のようになる. <br></p>
-<pre><code>    def _check_block_valid(
-        self, transactions, pre_hash, nonce, difficulty=MINING_DIFFICULTY
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_check_block_valid</span>(
+        self, transactions, pre_hash, nonce, difficulty<span style="color:#f92672">=</span>MINING_DIFFICULTY
     ):
-        ＃ ブロックのnonceがdifficultyの条件を満たす妥当なものか確認
-        guess_block = OrderedDict()
-        guess_block = {
-            &quot;transactions&quot;: transactions,
-            &quot;nonce&quot;: nonce,
-            &quot;pre_hash&quot;: pre_hash,
+        <span style="color:#960050;background-color:#1e0010">＃</span> <span style="color:#960050;background-color:#1e0010">ブロックの</span>nonceがdifficultyの条件を満たす妥当なものか確認
+        guess_block <span style="color:#f92672">=</span> OrderedDict()
+        guess_block <span style="color:#f92672">=</span> {
+            <span style="color:#e6db74">&#34;transactions&#34;</span>: transactions,
+            <span style="color:#e6db74">&#34;nonce&#34;</span>: nonce,
+            <span style="color:#e6db74">&#34;pre_hash&#34;</span>: pre_hash,
         }
-        guess_hash = self._get_block_hash(guess_block)
-        return guess_hash[:difficulty] == &quot;0&quot; * difficulty
+        guess_hash <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_get_block_hash(guess_block)
+        <span style="color:#66d9ef">return</span> guess_hash[:difficulty] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;0&#34;</span> <span style="color:#f92672">*</span> difficulty
 
-    def _proof_of_work(self):
-        # 適当なnonceが発見されるまで総当たりで計算
-        transactions = self.transactions.copy()
-        pre_hash = self._get_block_hash(self.block_chain[-1])
-        nonce = 0
-        while self._check_block_valid(transactions, pre_hash, nonce) is False:
-            nonce += 1
-        print(&quot;SUCCESS MINING&quot;)
-        return nonce
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_proof_of_work</span>(self):
+        <span style="color:#75715e"># 適当なnonceが発見されるまで総当たりで計算</span>
+        transactions <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>transactions<span style="color:#f92672">.</span>copy()
+        pre_hash <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_get_block_hash(self<span style="color:#f92672">.</span>block_chain[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+        nonce <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> self<span style="color:#f92672">.</span>_check_block_valid(transactions, pre_hash, nonce) <span style="color:#f92672">is</span> False:
+            nonce <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SUCCESS MINING&#34;</span>)
+        <span style="color:#66d9ef">return</span> nonce
 
-    def _mining(self):
-        # マイナーへの報酬を取引履歴に加えマイニング
-        self._add_transaction(
-            sender_address=MINING_SENDER,
-            recipient_address=self.blockchain_address,
-            value=MINING_REWARD,
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_mining</span>(self):
+        <span style="color:#75715e"># マイナーへの報酬を取引履歴に加えマイニング</span>
+        self<span style="color:#f92672">.</span>_add_transaction(
+            sender_address<span style="color:#f92672">=</span>MINING_SENDER,
+            recipient_address<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>blockchain_address,
+            value<span style="color:#f92672">=</span>MINING_REWARD,
         )
-        nonce = self._proof_of_work()
-        pre_hash = self._get_block_hash(self.block_chain[-1])
-        self._create_block(nonce, pre_hash)
-        return True
-</code></pre><p>Bitcoinでは14日に一度自動的にdifficulty調整が行われるが, 今回はマシンパワーをそこまで使用したくなかったためdifficultyを固定し, マイニングが10分間隔で行われるなんちゃって実装をした. <br>
+        nonce <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_proof_of_work()
+        pre_hash <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_get_block_hash(self<span style="color:#f92672">.</span>block_chain[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>])
+        self<span style="color:#f92672">.</span>_create_block(nonce, pre_hash)
+        <span style="color:#66d9ef">return</span> True
+</code></pre></div><p>Bitcoinでは14日に一度自動的にdifficulty調整が行われるが, 今回はマシンパワーをそこまで使用したくなかったためdifficultyを固定し, マイニングが10分間隔で行われるなんちゃって実装をした. <br>
 報酬は &ldquo;1.0 UKC&rdquo; である. <br>
 また, ノード間での正当性検証については後ほど実装する. <br></p>
 <h3 id="ブロックチェーンアドレスと署名">~ブロックチェーンアドレスと署名~</h3>
@@ -249,49 +249,49 @@ AさんがBさんへX量の通貨を送信したという記録の存在がBさ�
 </ol>
 <p>今回は同じ方式でアドレスを生成する. <br>
 hashlibやecdsaライブラリによって簡単に実装できる. <br></p>
-<pre><code>class Wallet():
-    def __init__(self):
-        self._private_key = SigningKey.generate(curve=NIST256p)
-        self._public_key = self._private_key.get_verifying_key()
-        self._blockchain_address = self._generate_blockchain_address()
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Wallet</span>():
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>_private_key <span style="color:#f92672">=</span> SigningKey<span style="color:#f92672">.</span>generate(curve<span style="color:#f92672">=</span>NIST256p)
+        self<span style="color:#f92672">.</span>_public_key <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_private_key<span style="color:#f92672">.</span>get_verifying_key()
+        self<span style="color:#f92672">.</span>_blockchain_address <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_generate_blockchain_address()
 
-    def _generate_blockchain_address(self):
-        public_key_bytes = self._public_key.to_string()
-        # 公開鍵をハッシュ関数SHA-256に通す
-        sha256_bpk = hashlib.sha256(public_key_bytes)
-        sha256_bpk_digest = sha256_bpk.digest()
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_generate_blockchain_address</span>(self):
+        public_key_bytes <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>_public_key<span style="color:#f92672">.</span>to_string()
+        <span style="color:#75715e"># 公開鍵をハッシュ関数SHA-256に通す</span>
+        sha256_bpk <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256(public_key_bytes)
+        sha256_bpk_digest <span style="color:#f92672">=</span> sha256_bpk<span style="color:#f92672">.</span>digest()
 
-        # ハッシュ関数RIPEMED-160に通す
-        ripemed160_bpk = hashlib.new(&quot;ripemd160&quot;)
-        ripemed160_bpk.update(sha256_bpk_digest)
-        ripemed160_bpk_digest = ripemed160_bpk.digest()
-        ripemed160_bpk_hex = codecs.encode(ripemed160_bpk_digest, &quot;hex&quot;)
+        <span style="color:#75715e"># ハッシュ関数RIPEMED-160に通す</span>
+        ripemed160_bpk <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>new(<span style="color:#e6db74">&#34;ripemd160&#34;</span>)
+        ripemed160_bpk<span style="color:#f92672">.</span>update(sha256_bpk_digest)
+        ripemed160_bpk_digest <span style="color:#f92672">=</span> ripemed160_bpk<span style="color:#f92672">.</span>digest()
+        ripemed160_bpk_hex <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>encode(ripemed160_bpk_digest, <span style="color:#e6db74">&#34;hex&#34;</span>)
 
-        # 先頭にプレフィックスとして00を加える
-        network_byte = b&quot;00&quot;
-        network_bitcoin_public_key = network_byte + ripemed160_bpk_hex
-        network_bitcoin_public_key_bytes = codecs.decode(
-            network_bitcoin_public_key, &quot;hex&quot;
+        <span style="color:#75715e"># 先頭にプレフィックスとして00を加える</span>
+        network_byte <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;00&#34;</span>
+        network_bitcoin_public_key <span style="color:#f92672">=</span> network_byte <span style="color:#f92672">+</span> ripemed160_bpk_hex
+        network_bitcoin_public_key_bytes <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>decode(
+            network_bitcoin_public_key, <span style="color:#e6db74">&#34;hex&#34;</span>
         )
 
-        # ハッシュ関数SHA-256pに2回通す
-        sha256_bpk = hashlib.sha256(network_bitcoin_public_key_bytes)
-        sha256_bpk_digest = sha256_bpk.digest()
-        sha256_2_nbpk = hashlib.sha256(sha256_bpk_digest)
-        sha256_2_nbpk_digest = sha256_2_nbpk.digest()
-        sha256_hex = codecs.encode(sha256_2_nbpk_digest, &quot;hex&quot;)
+        <span style="color:#75715e"># ハッシュ関数SHA-256pに2回通す</span>
+        sha256_bpk <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256(network_bitcoin_public_key_bytes)
+        sha256_bpk_digest <span style="color:#f92672">=</span> sha256_bpk<span style="color:#f92672">.</span>digest()
+        sha256_2_nbpk <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256(sha256_bpk_digest)
+        sha256_2_nbpk_digest <span style="color:#f92672">=</span> sha256_2_nbpk<span style="color:#f92672">.</span>digest()
+        sha256_hex <span style="color:#f92672">=</span> codecs<span style="color:#f92672">.</span>encode(sha256_2_nbpk_digest, <span style="color:#e6db74">&#34;hex&#34;</span>)
 
-        # 4bytesのチェックサムを後ろに加える
-        checksum = sha256_hex[:8]
-        address_hex = (network_bitcoin_public_key + checksum).decode(&quot;utf-8&quot;)
+        <span style="color:#75715e"># 4bytesのチェックサムを後ろに加える</span>
+        checksum <span style="color:#f92672">=</span> sha256_hex[:<span style="color:#ae81ff">8</span>]
+        address_hex <span style="color:#f92672">=</span> (network_bitcoin_public_key <span style="color:#f92672">+</span> checksum)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
 
-        # Base58でエンコード
-        blockchain_address = base58.b58encode(address_hex).decode(&quot;utf-8&quot;)
-        return blockchain_address
-</code></pre><p>取引情報記録と署名について <br>
+        <span style="color:#75715e"># Base58でエンコード</span>
+        blockchain_address <span style="color:#f92672">=</span> base58<span style="color:#f92672">.</span>b58encode(address_hex)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
+        <span style="color:#66d9ef">return</span> blockchain_address
+</code></pre></div><p>取引情報記録と署名について <br>
 ecdsaライブラリを使い, Transactionオブジェクトに渡された取引情報に署名をしている. <br></p>
-<pre><code>class Transaction():
-    def __init__(
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Transaction</span>():
+    <span style="color:#66d9ef">def</span> __init__(
         self,
         sender_private_key,
         sender_public_key,
@@ -299,70 +299,70 @@ ecdsaライブラリを使い, Transactionオブジェクトに渡された取�
         recipient_address,
         value,
     ):
-        self.sender_private_key = sender_private_key
-        self.sender_public_key = sender_public_key
-        self.sender_address = sender_address
-        self.recipient_address = recipient_address
-        self.value = value
+        self<span style="color:#f92672">.</span>sender_private_key <span style="color:#f92672">=</span> sender_private_key
+        self<span style="color:#f92672">.</span>sender_public_key <span style="color:#f92672">=</span> sender_public_key
+        self<span style="color:#f92672">.</span>sender_address <span style="color:#f92672">=</span> sender_address
+        self<span style="color:#f92672">.</span>recipient_address <span style="color:#f92672">=</span> recipient_address
+        self<span style="color:#f92672">.</span>value <span style="color:#f92672">=</span> value
 
-    def generate_signature(self):
-        # 取引情報に秘密鍵を用いて署名を行う
-        sha256 = hashlib.sha256()
-        transaction = OrderedDict()
-        transaction = {
-            &quot;sender_address&quot;: self.sender_address,
-            &quot;recipient_address&quot;: self.recipient_address,
-            &quot;value&quot;: float(self.value),
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate_signature</span>(self):
+        <span style="color:#75715e"># 取引情報に秘密鍵を用いて署名を行う</span>
+        sha256 <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256()
+        transaction <span style="color:#f92672">=</span> OrderedDict()
+        transaction <span style="color:#f92672">=</span> {
+            <span style="color:#e6db74">&#34;sender_address&#34;</span>: self<span style="color:#f92672">.</span>sender_address,
+            <span style="color:#e6db74">&#34;recipient_address&#34;</span>: self<span style="color:#f92672">.</span>recipient_address,
+            <span style="color:#e6db74">&#34;value&#34;</span>: float(self<span style="color:#f92672">.</span>value),
         }
-        sha256.update(str(transaction).encode(&quot;utf-8&quot;))
-        message = sha256.digest()
-        private_key = SigningKey.from_string(
-            bytes().fromhex(self.sender_private_key), curve=NIST256p
+        sha256<span style="color:#f92672">.</span>update(str(transaction)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+        message <span style="color:#f92672">=</span> sha256<span style="color:#f92672">.</span>digest()
+        private_key <span style="color:#f92672">=</span> SigningKey<span style="color:#f92672">.</span>from_string(
+            bytes()<span style="color:#f92672">.</span>fromhex(self<span style="color:#f92672">.</span>sender_private_key), curve<span style="color:#f92672">=</span>NIST256p
         )
-        private_key_sign = private_key.sign(message)
-        signature = private_key_sign.hex()
-        return signature
-</code></pre><p>署名の検証とブロックへの取引情報の追加について<br>
+        private_key_sign <span style="color:#f92672">=</span> private_key<span style="color:#f92672">.</span>sign(message)
+        signature <span style="color:#f92672">=</span> private_key_sign<span style="color:#f92672">.</span>hex()
+        <span style="color:#66d9ef">return</span> signature
+</code></pre></div><p>署名の検証とブロックへの取引情報の追加について<br>
 先ほど同様にecdsaライブラリを使い, 署名を検証し正しい場合のみ取引情報プールへ取引を追加している. <br></p>
-<pre><code>    def _verify_signature(self, sender_public_key, signature, transaction):
-        # 取引情報の署名を公開鍵で検証
-        sha256 = hashlib.sha256()
-        sha256.update(str(transaction).encode(&quot;utf-8&quot;))
-        message = sha256.digest()
-        signature_bytes = bytes().fromhex(signature)
-        verifying_key = VerifyingKey.from_string(
-            bytes().fromhex(sender_public_key), curve=NIST256p
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_verify_signature</span>(self, sender_public_key, signature, transaction):
+        <span style="color:#75715e"># 取引情報の署名を公開鍵で検証</span>
+        sha256 <span style="color:#f92672">=</span> hashlib<span style="color:#f92672">.</span>sha256()
+        sha256<span style="color:#f92672">.</span>update(str(transaction)<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>))
+        message <span style="color:#f92672">=</span> sha256<span style="color:#f92672">.</span>digest()
+        signature_bytes <span style="color:#f92672">=</span> bytes()<span style="color:#f92672">.</span>fromhex(signature)
+        verifying_key <span style="color:#f92672">=</span> VerifyingKey<span style="color:#f92672">.</span>from_string(
+            bytes()<span style="color:#f92672">.</span>fromhex(sender_public_key), curve<span style="color:#f92672">=</span>NIST256p
         )
-        verified_key = verifying_key.verify(signature_bytes, message)
-        return verified_key
+        verified_key <span style="color:#f92672">=</span> verifying_key<span style="color:#f92672">.</span>verify(signature_bytes, message)
+        <span style="color:#66d9ef">return</span> verified_key
 
-    def _add_transaction(
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_add_transaction</span>(
         self,
         sender_address,
         recipient_address,
         value,
-        sender_public_key=None,
-        signature=None,
+        sender_public_key<span style="color:#f92672">=</span>None,
+        signature<span style="color:#f92672">=</span>None,
     ):
-        transaction = OrderedDict()
-        transaction = {
-            &quot;sender_address&quot;: sender_address,
-            &quot;recipient_address&quot;: recipient_address,
-            &quot;value&quot;: float(value),
+        transaction <span style="color:#f92672">=</span> OrderedDict()
+        transaction <span style="color:#f92672">=</span> {
+            <span style="color:#e6db74">&#34;sender_address&#34;</span>: sender_address,
+            <span style="color:#e6db74">&#34;recipient_address&#34;</span>: recipient_address,
+            <span style="color:#e6db74">&#34;value&#34;</span>: float(value),
         }
-        if sender_address == MINING_SENDER:
-            # マイニング報酬は署名検証無視
-            self.transactions.append(transaction)
-            return True
-        if self._verify_signature(sender_public_key, signature, transaction):
-            # 署名検証が正しい場合は取引情報を取引情報プールへ追加
-            if self.calculate_total_amount(sender_address) &lt; float(value):
-                # 残高不足は取引不成立
-                return False
-            self.transactions.append(transaction)
-            return True
-        return False
-</code></pre><p>ここまでの実装で署名を用いた取引情報の記録とPoWを利用したマイニングが実現できた. <br>
+        <span style="color:#66d9ef">if</span> sender_address <span style="color:#f92672">==</span> MINING_SENDER:
+            <span style="color:#75715e"># マイニング報酬は署名検証無視</span>
+            self<span style="color:#f92672">.</span>transactions<span style="color:#f92672">.</span>append(transaction)
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>_verify_signature(sender_public_key, signature, transaction):
+            <span style="color:#75715e"># 署名検証が正しい場合は取引情報を取引情報プールへ追加</span>
+            <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>calculate_total_amount(sender_address) <span style="color:#f92672">&lt;</span> float(value):
+                <span style="color:#75715e"># 残高不足は取引不成立</span>
+                <span style="color:#66d9ef">return</span> False
+            self<span style="color:#f92672">.</span>transactions<span style="color:#f92672">.</span>append(transaction)
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> False
+</code></pre></div><p>ここまでの実装で署名を用いた取引情報の記録とPoWを利用したマイニングが実現できた. <br>
 ここからはブロックチェーンの管理とマイニングを行うノードを立ち上げネットワークを構成する. <br></p>
 <h3 id="ブロックチェーンネットワーク">~ブロックチェーンネットワーク~</h3>
 <p>先ほど述べたようにブロックチェーンは分散型の台帳により管理されるため各ノード及びそのネットワークを構築する必要がある. <br>
@@ -378,44 +378,44 @@ Herokuの無料枠では使用量の制限やメンテナンス等で落ちる�
 あるノードから見て他ノードのブロックチェーンが長い場合はその正当性が検証される. <br>
 そして問題がない場合は自身のブロックチェーンへとブロックを追加する. <br>
 これにより不正なブロックを除くことやノード間のデータ同期が可能となっている. <br></p>
-<pre><code>    def _valid_chain(self, chain):
-        # nonceが正しいものであるかを確認しチェーンの正当性を検証
-        pre_block = chain[0]
-        current_index = 1
-        while current_index &lt; len(chain):
-            block = chain[current_index]
-            if block[&quot;pre_hash&quot;] != self._get_block_hash(pre_block):
-                return False
-            if not self._check_block_valid(
-                block[&quot;transactions&quot;],
-                block[&quot;pre_hash&quot;],
-                block[&quot;nonce&quot;],
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_valid_chain</span>(self, chain):
+        <span style="color:#75715e"># nonceが正しいものであるかを確認しチェーンの正当性を検証</span>
+        pre_block <span style="color:#f92672">=</span> chain[<span style="color:#ae81ff">0</span>]
+        current_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> current_index <span style="color:#f92672">&lt;</span> len(chain):
+            block <span style="color:#f92672">=</span> chain[current_index]
+            <span style="color:#66d9ef">if</span> block[<span style="color:#e6db74">&#34;pre_hash&#34;</span>] <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>_get_block_hash(pre_block):
+                <span style="color:#66d9ef">return</span> False
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>_check_block_valid(
+                block[<span style="color:#e6db74">&#34;transactions&#34;</span>],
+                block[<span style="color:#e6db74">&#34;pre_hash&#34;</span>],
+                block[<span style="color:#e6db74">&#34;nonce&#34;</span>],
                 MINING_DIFFICULTY,
             ):
-                return False
-            pre_block = block
-            current_index += 1
-        return True
+                <span style="color:#66d9ef">return</span> False
+            pre_block <span style="color:#f92672">=</span> block
+            current_index <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> True
 
-    def resolve_conflicts(self):
-        # 正当なチェーンでかつ自信が持つものより長ければ追加
-        longest_chain = None
-        max_length = len(self.block_chain)
-        for node in self.neighbours:
-            response = requests.get(f&quot;{node}/viewchain&quot;)
-            if response.status_code == 200:
-                response_json = response.json()
-                chain = response_json[&quot;chain&quot;]
-                chain_length = len(chain)
-                if chain_length &gt; max_length and self._valid_chain(chain):
-                    max_length = chain_length
-                    longest_chain = chain
-        if longest_chain:
-            self.block_chain = longest_chain
-            print(&quot;find other longest chain, replaced&quot;)
-            return True
-        return False
-</code></pre><p>今回は全てのノードで全てのデータを同期しマイニングまで行っているがBitcoinでは異なる役割を持つノードが存在する. <br>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resolve_conflicts</span>(self):
+        <span style="color:#75715e"># 正当なチェーンでかつ自信が持つものより長ければ追加</span>
+        longest_chain <span style="color:#f92672">=</span> None
+        max_length <span style="color:#f92672">=</span> len(self<span style="color:#f92672">.</span>block_chain)
+        <span style="color:#66d9ef">for</span> node <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>neighbours:
+            response <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(f<span style="color:#e6db74">&#34;{node}/viewchain&#34;</span>)
+            <span style="color:#66d9ef">if</span> response<span style="color:#f92672">.</span>status_code <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>:
+                response_json <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>json()
+                chain <span style="color:#f92672">=</span> response_json[<span style="color:#e6db74">&#34;chain&#34;</span>]
+                chain_length <span style="color:#f92672">=</span> len(chain)
+                <span style="color:#66d9ef">if</span> chain_length <span style="color:#f92672">&gt;</span> max_length <span style="color:#f92672">and</span> self<span style="color:#f92672">.</span>_valid_chain(chain):
+                    max_length <span style="color:#f92672">=</span> chain_length
+                    longest_chain <span style="color:#f92672">=</span> chain
+        <span style="color:#66d9ef">if</span> longest_chain:
+            self<span style="color:#f92672">.</span>block_chain <span style="color:#f92672">=</span> longest_chain
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;find other longest chain, replaced&#34;</span>)
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> False
+</code></pre></div><p>今回は全てのノードで全てのデータを同期しマイニングまで行っているがBitcoinでは異なる役割を持つノードが存在する. <br>
 フルノードと呼ばれるものは要件を満たしている取引情報とブロックを承認している. <br>
 ほとんどのフルノードはサトシナカモトがリリースしたビットコインソフトウェアを実行している. <br>
 全てのブロックチェーン情報を保有したフルノードはフルアーカイブノードとして扱われる. <br>
@@ -427,30 +427,30 @@ BitcoinではDNSシードというBitcoinノードのIPを提供するDNSコン�
 DNSシードはBitcoinのコミュニティメンバーによって管理され, 動的なシードと静的なシードが提供されている. <br>
 Ukawacoinではお試しということもあり, あらかじめ用意した接続候補先へのレスポンスを確認し稼働しているものをピアとして設定する. <br>
 もし, ノードを追加する場合は候補先にあるアドレスを使用する必要がある. <br></p>
-<pre><code>def check_internet(url, timeout=5):
-    #  稼働し正常なレスポンスがあるかの確認
-    try:
-        response = urllib.request.urlopen(url).getcode()
-        if response == 200:
-            return True
-        return False
-    except urllib.error.HTTPError as ex:
-        print(ex)
-        return False
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_internet</span>(url, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>):
+    <span style="color:#75715e">#  稼働し正常なレスポンスがあるかの確認</span>
+    <span style="color:#66d9ef">try</span>:
+        response <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(url)<span style="color:#f92672">.</span>getcode()
+        <span style="color:#66d9ef">if</span> response <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> False
+    <span style="color:#66d9ef">except</span> urllib<span style="color:#f92672">.</span>error<span style="color:#f92672">.</span>HTTPError <span style="color:#66d9ef">as</span> ex:
+        <span style="color:#66d9ef">print</span>(ex)
+        <span style="color:#66d9ef">return</span> False
 
-def find_neighbours():
-    # 稼働しているノードをピアとして追加
-    neighbours = []
-    candidate_address_list = node_sheet.NODE_LIST
-    host_name = node_sheet.MY_NODE
-    print(&quot;find neighbour node process in &quot;, host_name)
-    for guess_address in candidate_address_list:
-        if guess_address == host_name:
-            continue
-        if check_internet(guess_address):
-            neighbours.append(guess_address)
-    return neighbours
-</code></pre><h2 id="4-ukawacoin--dev--完成">4. Ukawacoin -dev- 完成</h2>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">find_neighbours</span>():
+    <span style="color:#75715e"># 稼働しているノードをピアとして追加</span>
+    neighbours <span style="color:#f92672">=</span> []
+    candidate_address_list <span style="color:#f92672">=</span> node_sheet<span style="color:#f92672">.</span>NODE_LIST
+    host_name <span style="color:#f92672">=</span> node_sheet<span style="color:#f92672">.</span>MY_NODE
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;find neighbour node process in &#34;</span>, host_name)
+    <span style="color:#66d9ef">for</span> guess_address <span style="color:#f92672">in</span> candidate_address_list:
+        <span style="color:#66d9ef">if</span> guess_address <span style="color:#f92672">==</span> host_name:
+            <span style="color:#66d9ef">continue</span>
+        <span style="color:#66d9ef">if</span> check_internet(guess_address):
+            neighbours<span style="color:#f92672">.</span>append(guess_address)
+    <span style="color:#66d9ef">return</span> neighbours
+</code></pre></div><h2 id="4-ukawacoin--dev--完成">4. Ukawacoin -dev- 完成</h2>
 <p>Ukawacoinの開発版が完成した. <br>
 ※以下のリンク情報は執筆時のものであり変更されてる可能性がある<br></p>
 <p>ノードは3つ立ち上げている. <br></p>
