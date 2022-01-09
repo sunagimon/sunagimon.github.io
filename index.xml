@@ -35,7 +35,7 @@
       <guid>https://sunagimon.github.io/portfolio/life/</guid>
       <description>Movie   Tech Unityで制作し, WebGLでビルドしている. 3D空間内でモン◯トのような引っ張り飛ばすアクションを実装するためにRayCastを使用し, Dragベクトルの計算をしている. if(Input.GetMouseButton(0)) { Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); RaycastHit hit; if(Physics.Raycast(ray, out hit, Mathf.Infinity) &amp;amp;&amp;amp; touch == true) { //ドラッグベクトル計算  dragVec = transform.position - hit.point; } } PC → NPCへの切り替えはInstantiate関数を使い, クローンオブジェクトを生み出し, 自身をDestroyしている. コード上でも自身の死と新たな生の誕生を再現した. GameObject dragPlayer = Instantiate(DragPlayer, transform.position, transform.rotation) as GameObject; Destroy(this.gameObject);  Comment unityroomの1週間ゲームジャムで制作. お題は「つながる」
 つながる「LIFE」
-PCをNPCに引っ張りぶつけるとPCは消え, NPCはPCになる. ビデオゲームアートという世界ではPlayerの意思は「生」であるらしい. 生き物が行う「生をつなぐ」という行為をゲームのキャラにやらせたみた. 直前にビデオゲームアート展(ICC | イン・ア・ゲームスケープ)に行った影響を強く受けている. レンダリングパスを上手く設定しないとPointLightが消えるなど, Unity → WebGLを闇の深さを感じられる作品でもあった.  Link unityroom_LIFE</description>
+PCをNPCに引っ張りぶつけるとPCは消え, NPCはPCになる. ビデオゲームアートという世界ではPlayerの意思は「生」であるらしい. 生き物が行う「生をつなぐ」という行為をゲームのキャラにやらせたみた. 直前にビデオゲームアート展(ICC | イン・ア・ゲームスケープ)に行った影響を強く受けている.  Link unityroom_LIFE</description>
     </item>
     
     <item>

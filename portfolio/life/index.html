@@ -121,9 +121,9 @@
 }
 </code></pre></div><p>PC → NPCへの切り替えはInstantiate関数を使い, クローンオブジェクトを生み出し, 自身をDestroyしている. <br>
 コード上でも自身の死と新たな生の誕生を再現した. <br></p>
-<pre><code>GameObject dragPlayer = Instantiate(DragPlayer, transform.position, transform.rotation) as GameObject;
-Destroy(this.gameObject);
-</code></pre><hr>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">GameObject dragPlayer = Instantiate(DragPlayer, transform.position, transform.rotation) <span style="color:#66d9ef">as</span> GameObject;
+Destroy(<span style="color:#66d9ef">this</span>.gameObject);
+</code></pre></div><hr>
 <h1 id="comment">Comment</h1>
 <p>unityroomの1週間ゲームジャムで制作. <br>
 お題は「つながる」<br></p>
@@ -131,8 +131,7 @@ Destroy(this.gameObject);
 PCをNPCに引っ張りぶつけるとPCは消え, NPCはPCになる. <br>
 ビデオゲームアートという世界ではPlayerの意思は「生」であるらしい. <br>
 生き物が行う「生をつなぐ」という行為をゲームのキャラにやらせたみた. <br></p>
-<p>直前にビデオゲームアート展(ICC | イン・ア・ゲームスケープ)に行った影響を強く受けている. <br>
-レンダリングパスを上手く設定しないとPointLightが消えるなど, Unity → WebGLを闇の深さを感じられる作品でもあった. <br></p>
+<p>直前にビデオゲームアート展(ICC | イン・ア・ゲームスケープ)に行った影響を強く受けている. <br></p>
 <hr>
 <h1 id="link">Link</h1>
 <p><a href= https://unityroom.com/games/life target=”_blank”>unityroom_LIFE</a></p>
