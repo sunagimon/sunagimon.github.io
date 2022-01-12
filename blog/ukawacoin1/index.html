@@ -109,12 +109,14 @@
 ぜひ使ってみてください. <br></p>
 <p><u><a href="https://ukawacoin-wallet.herokuapp.com" target="_blank">Ukawacoin wallet1</a></u><br>
 <u><a href="https://ukawacoin-0001-wallet.herokuapp.com" target="_blank">Ukawacoin wallet2</a></u><br></p>
+<hr>
 <h2 id="1-はじめに">1. はじめに</h2>
 <p>近頃, Bitcoinをはじめとした暗号資産の高騰やNFTアートが6900万$という高値で落札されたなどのニュースを背景にブロックチェーンへの注目が以前よりも高まっているように思える. <br>
 また, ブロックチェーン自体もLightning NetworkやPoS等の省エネルギーな合意方式の導入など実用性の改善が日々進められ, 様々な分野での応用が期待されている. <br>
 私は昔から暗号資産の取引やNFTゲームなどを楽しんできたが, その根底にあるブロックチェーンについては概念レベルの理解しかできていなかった. <br>
 トレンドのこの技術について今さらながら教養として, また, 将来に向けてお勉強しようと思った次第である. <br>
 この記事では簡易的なブロックチェーンによるオリジナル暗号通貨を実装するとともに, コードレベルで主要なアルゴリズムを紹介する. <br></p>
+<hr>
 <h2 id="2-ブロックチェーンとは">2. ブロックチェーンとは</h2>
 <p>ブロックチェーンとはデータベース技術の一種である. <br>
 ブロック単位で情報を記録し, 時系列に沿ってブロックが新たに生成される際には一つ前のブロックの内容がハッシュ値として格納される. <br>
@@ -128,9 +130,10 @@
 <p>前置きが長くなったがここまでがよくある概念的な説明だ. <br>
 ここからは実装を交えて説明する. <br>
 今回は元祖とも言えるBitcoinのブロックチェーンに倣い, オリジナル暗号通貨のUkawacoinを作成する. <br></p>
+<hr>
 <h2 id="3-ukawacoinの実装">3. Ukawacoinの実装</h2>
 <p>※現時点でUkawacoinは開発版, 勉強用であり販売目的はない. <br></p>
-<h3 id="ブロックとハッシュ">~ブロックとハッシュ~</h3>
+<h4 id="ブロックとハッシュ">~ブロックとハッシュ~</h4>
 <p>BitcoinはC++で作成されているが, 今回はPythonを使用する. <br>
 ハッシュ関数や公開鍵暗号署名など必要なライブラリが充実しているためお試しに良い. <br></p>
 <p>まずはハッシュ値で繋がれたブロックデータ構造ついて<br></p>
@@ -174,7 +177,7 @@ nonceはNumber used onceの略でそのブロックのマイニング時に発�
         self<span style="color:#f92672">.</span>_create_block(nonce, pre_hash<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>_get_block_hash(self<span style="color:#f92672">.</span>block_chain[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]))
 </code></pre></div><p>BitcoinではSHA-256というハッシュ関数が使用されている. <br>
 Secure Hash Algorithm 256-bitの略であり, その名の通り32bit長のハッシュ値が得られる. <br></p>
-<h3 id="マイニング">~マイニング~</h3>
+<h4 id="マイニング">~マイニング~</h4>
 <p>続いては, コンセンサスアルゴリズムの一種であるProof of Work：PoWについて <br>
 BitcoinではPoWを利用しブロックの生成及び結合作業であるマイニングを行なっている. <br>
 具体的にはマイナーは直前のブロックのハッシュ値にnonce加え, 出力されたハッシュ値の先頭に0が一定数並んでいるかを確認する. <br>
@@ -228,7 +231,7 @@ PoSではPoWが計算量（仕事）に対し報酬が与えられるのに対�
 </code></pre></div><p>Bitcoinでは14日に一度自動的にdifficulty調整が行われるが, 今回はマシンパワーをそこまで使用したくなかったためdifficultyを固定し, マイニングが10分間隔で行われるなんちゃって実装をした. <br>
 報酬は &ldquo;1.0 UKC&rdquo; である. <br>
 また, ノード間での正当性検証については後ほど実装する. <br></p>
-<h3 id="ブロックチェーンアドレスと署名">~ブロックチェーンアドレスと署名~</h3>
+<h4 id="ブロックチェーンアドレスと署名">~ブロックチェーンアドレスと署名~</h4>
 <p>暗号通貨の実態は通貨の取引情報記録である. <br>
 AさんがBさんへX量の通貨を送信したという記録の存在がBさんがX量のお金を保有を意味する. <br>
 では, 誰でも好き勝手に取引情報を記録し, 資産を増やすことができるのであろうか？それはできない. <br>
@@ -364,7 +367,7 @@ ecdsaライブラリを使い, Transactionオブジェクトに渡された取�
         <span style="color:#66d9ef">return</span> False
 </code></pre></div><p>ここまでの実装で署名を用いた取引情報の記録とPoWを利用したマイニングが実現できた. <br>
 ここからはブロックチェーンの管理とマイニングを行うノードを立ち上げネットワークを構成する. <br></p>
-<h3 id="ブロックチェーンネットワーク">~ブロックチェーンネットワーク~</h3>
+<h4 id="ブロックチェーンネットワーク">~ブロックチェーンネットワーク~</h4>
 <p>先ほど述べたようにブロックチェーンは分散型の台帳により管理されるため各ノード及びそのネットワークを構築する必要がある. <br>
 今回, PythonのWebフレームワークFlaskにより作成したアプリをHerokuによりデプロイしネットワークを構築した. <br>
 UkawacoinのマイニングはCPUで可能であることと, ノードを増やしやすいとのことでPaaSを利用した. <br>
@@ -450,7 +453,8 @@ Ukawacoinではお試しということもあり, あらかじめ用意した接
         <span style="color:#66d9ef">if</span> check_internet(guess_address):
             neighbours<span style="color:#f92672">.</span>append(guess_address)
     <span style="color:#66d9ef">return</span> neighbours
-</code></pre></div><h2 id="4-ukawacoin--dev--完成">4. Ukawacoin -dev- 完成</h2>
+</code></pre></div><hr>
+<h2 id="4-ukawacoin--dev--完成">4. Ukawacoin -dev- 完成</h2>
 <p>Ukawacoinの開発版が完成した. <br>
 ※以下のリンク情報は執筆時のものであり変更されてる可能性がある<br></p>
 <p>ノードは3つ立ち上げている. <br></p>
@@ -478,14 +482,16 @@ Walletサーバへアクセスするたびにアドレス及び秘密鍵, 公開
 <p>ちなみにマイニングしているWalletのアドレスが以下だ. <br>
 Walletのアドレスにコピーすることで保有量が確認できると思われる. <br>
 秘密鍵と公開鍵がないため勝手に送信はできない. <br></p>
-<p>bSLquX84qWF5niXsPkQ9UjrF3WHXFkXwMvLmymf3jpUhA73ztRbBbZK9y5akxFxrfhF5　<br></p>
+<p><code>bSNTYUHyiYX8BstBa4Bnq34Wj26YKipXBW2e7tJvQdMrpTkkwamTF9dDKWCs8UpDBA9n</code></p>
 <p>あくまでこのコインはお勉強用であり開発段階だ. <br>
 正式なUkawacoinの登場をお待ちあれ. <br></p>
+<hr>
 <h2 id="5-おわり">5. おわり</h2>
 <p>ブロックチェーン技術をコードレベルで眺めることでモヤモヤしていたところがスッキリ理解できた. <br>
 一方, 今回の実装は初期のものであり最近のブロックチェーン技術については触れることができていない. <br>
 また, オリジナル暗号通貨では所々実装を省いている. <br>
 今後もお勉強を続けて実用レベルのブロックチェーン作成したいと思う. <br></p>
+<hr>
 <h2 id="6-参考">6. 参考</h2>
 <p>Bitcoin関連
 <a href="https://bitcoin.org/">https://bitcoin.org/</a></p>
