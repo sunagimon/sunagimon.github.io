@@ -431,7 +431,7 @@ DNSシードはBitcoinのコミュニティメンバーによって管理され,
 Ukawacoinではお試しということもあり, あらかじめ用意した接続候補先へのレスポンスを確認し稼働しているものをピアとして設定する. <br>
 もし, ノードを追加する場合は候補先にあるアドレスを使用する必要がある. <br></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">check_internet</span>(url, timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>):
-    <span style="color:#75715e">#  稼働し正常なレスポンスがあるかの確認</span>
+    <span style="color:#75715e"># 稼働し正常なレスポンスがあるかの確認</span>
     <span style="color:#66d9ef">try</span>:
         response <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlopen(url)<span style="color:#f92672">.</span>getcode()
         <span style="color:#66d9ef">if</span> response <span style="color:#f92672">==</span> <span style="color:#ae81ff">200</span>:
