@@ -401,7 +401,7 @@ Herokuの無料枠では使用量の制限やメンテナンス等で落ちる�
         <span style="color:#66d9ef">return</span> True
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resolve_conflicts</span>(self):
-        <span style="color:#75715e"># 正当なチェーンでかつ自信が持つものより長ければ追加</span>
+        <span style="color:#75715e"># 正当なチェーンでかつ自身が持つものより長ければ追加</span>
         longest_chain <span style="color:#f92672">=</span> None
         max_length <span style="color:#f92672">=</span> len(self<span style="color:#f92672">.</span>block_chain)
         <span style="color:#66d9ef">for</span> node <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>neighbours:
