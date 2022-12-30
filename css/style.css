@@ -38,10 +38,21 @@ a:hover {
   text-decoration: none;
 }
 
-a:link { color: rgb(65, 29, 29); }
-a:visited { color: #333; }
-a:hover { color: #ff0000; }
-a:active { color: #ff8000; }
+a:link {
+  color: rgb(65, 29, 29);
+}
+
+a:visited {
+  color: #333;
+}
+
+a:hover {
+  color: #ff0000;
+}
+
+a:active {
+  color: #ff8000;
+}
 
 .slick-slide:focus {
   outline: 0;
@@ -407,17 +418,17 @@ img.img-circle {
   background: #0c0c0c;
 }
 
-#call-to-action  .social {
+#call-to-action .social {
   text-align: right;
   margin-bottom: 0;
 }
 
-#call-to-action  .social li {
+#call-to-action .social li {
   display: inline-block;
   margin-right: 21px;
 }
 
-#call-to-action  .social li a {
+#call-to-action .social li a {
   font-size: 30px;
   color: #e00c0c;
 }
@@ -972,7 +983,8 @@ article {
 
 .single-post .post-content ol li,
 .single-post .post-content ul li {
-  color: #666;
+  color: #0c0c0c;
+  ;
 }
 
 .single-post .media {

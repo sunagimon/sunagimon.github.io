@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
+    <meta name="description" content="2022,12,30">
+    <meta name="author" content="sunagimon">
+    <meta name="generator" content="Hugo 0.82.1" />
+    
+    <!-- Mobile Specific Metas -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MLOpsに触れてみる (勉強編) </title>
+    <link rel="icon" href="https://sunagimon.github.io/images/home/favicon.ico">
+    <link rel="apple-touch-icon" href="https://sunagimon.github.io/images/home/favicon_mobile.png"sizes="180x180">
+    <link rel="icon" type="image/png" href="https://sunagimon.github.io/images/home/favicon_mobile.png"sizes="192x192">
+
+    <meta name="p:domain_verify" content="e6043d8eef13237212623c24630bc34d"/>
+  
+    <!-- Twitter Bootstrs CSS -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/bootstrap/bootstrap.min.css">
+    <!-- Ionicons Fonts Css -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/ionicons/ionicons.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/animate-css/animate.css">
+    <!-- Hero area slider css-->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/slider/slider.css">
+    <!-- slick slider -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/slick/slick.css">
+    <!-- Fancybox -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/facncybox/jquery.fancybox.css">
+    <!-- hover -->
+    <link rel="stylesheet" href="https://sunagimon.github.io/plugins/hover/hover-min.css">
+    <!-- template main css file -->
+    
+    <link rel="stylesheet" href="https://sunagimon.github.io/css/style.min.css" integrity="" media="screen">
+  </head><body><section class="top-bar animated-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="https://sunagimon.github.io">
+                        <img src="https://sunagimon.github.io/images/home/logo.svg" alt="logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://sunagimon.github.io">Home</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#about">About</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#works-jump">Works</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/#call-to-action">Contact</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/blog">Blog</a>
+                            </li>
+                            
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="global-page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2>MLOpsに触れてみる (勉強編) </h2>
+                    <div class="portfolio-meta">
+                        <span>Friday, Dec 30, 2022</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="single-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="post-content">
+                    <p>今年もアドベンドカレンダー<u><a href="https://sites.google.com/view/hobotamiadvent2022/home" target="_blank">「ほぼ横浜の民 Advent Calendar 2022」</a></u>を書く.</p>
+<p>MLOpsについて自分が勉強した備忘録を記す.<br>
+この記事 (勉強編) ではMLOpsをBig Tech各社の説明や実例, 幾人のエキスパートの発表などから探る. 　<br>
+主にその定義や成熟度合いの基準, 必要となる要素や技術についてまとめる.</p>
+<p>今後ではあるが, (実装編) でMLOpsに関わるいくつかの有名なサービスやライブラリを実際に使い, 簡単な機械学習サービスを立ち上げる試行錯誤の様子を公開予定だ.</p>
+<hr>
+<h1 id="動機">動機</h1>
+<p>私は普段AIのモデルやシステムはその場・その時のモノを作成しがちだ.<br>
+パイプラインの設計に決まりは特になく, 何かしらの課題に対し手頃なデータを用意し, モデルを見繕い, こちらに責務があればデプロイし, てきとうに用意したScriptで評価や効果を可視化し, それらしい資料を添え, 今回の施策を説明して終わりというお決まり (行き当たりばったり) の流れで生きている.<br>
+小規模な開発や継続的なモデルの運用や改善をしない場であればこのやり方でも間に合っているが, これで良いのかと思うことが最近増えた.<br>
+また, 世の中のデファクトスタンダードな機械学習開発とは何だろうかと思い, MLOpsを学んでみようと思った次第だ.</p>
+<hr>
+<h1 id="mlopsとは">MLOpsとは</h1>
+<p>MLOpsとは「機械学習モデルの効率的な実装やデプロイ, 運用することを目的とした一連のプラクティスおよびその概念」であるそうだ.<br>
+機械学習 (Machine Learning) と運用 (Operations) を組み合わせた造語であり, 定義は色々と見られる.<br>
+どうやら一般のソフトウェア開発にはないML開発特有の課題 (<u><a href="https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf" target="_blank">Hidden Technical Debt in Machine Learning Systems</a></u>) を解決するためのものだそうだ.</p>
+<p>まずはBig Tech各社 = Microsoft, Google, AWS の説明を簡単にさらいMLOpsとは具体的に何かを探る.</p>
+<br>
+<br>
+<br>
+<h3 id="microsoftの説明">Microsoftの説明</h3>
+<p>Microsoft (<u><a href="https://learn.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment" target="_blank">MLOps: Model management, deployment, and monitoring with Azure Machine Learning</a></u>) では,
+MLOpsはワークフローの効率を高める継続的なインテグレーション, デリバリ, デプロイなどDevOpsの原則と実践に基づいていると定義している.<br>
+これらをMLプロセスに適用する目的は以下であると述べられている.</p>
+<ul>
+<li>・モデルのより迅速な実験と開発</li>
+<li>・実稼働環境への迅速なモデルのデプロイ</li>
+<li>・品質保証</li>
+</ul>
+<p>また, MLOpsのDevOpsと比較した特性の違いを以下のように述べている.</p>
+<ul>
+<li>・開発と運用に先立って探索を行う.</li>
+<li>・データサイエンスのライフサイクルに適応性のある作業方法が求められる.</li>
+<li>・データの品質による制限や可用性による制限が進行する.</li>
+<li>・DevOpsより大きな運用作業が必要になる.</li>
+<li>・作業チームにはスペシャリストとドメインエキスパートが必要になる.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/microsoft_ct.jpg" width="80%" height="80%"></li>
+</ul>
+<p>これを説明するMLOpsの原則として以下を挙げている.</p>
+<ul>
+<li>
+<p><strong>・コード, データ, 実験の出力にバージョンを適用</strong><br>
+従来のソフトウェア開発とは異なりデータはモデルの品質に直接影響するため実験や推論の結果を再現できるよう実験コードのバージョン管理に加え, データセットのバージョン管理を行う必要がある.</p>
+</li>
+<li>
+<p><strong>・複数の環境の使用</strong><br>
+開発とテストを運用作業から分離するため少なくとも2つの環境にインフラストラクチャをレプリケートする必要があり, ユーザーのアクセス制御は環境ごとに異なる場合がある.</p>
+</li>
+<li>
+<p><strong>・インフラストラクチャの管理</strong><br>
+作業環境でインフラストラクチャコンポーネントを作成および更新する場合は環境内で不整合がないように注意する.<br>
+複数の環境で実験のバージョンを簡単に再実行, 再利用したりできるように実験のジョブの仕様構成をコードとして管理する.</p>
+</li>
+<li>
+<p><strong>・ML実験のトレーサビリティを管理</strong><br>
+ML実験に関する評価指標やその他の成果物のトレーサビリティを確保する.<br>
+ジョブのパフォーマンスの履歴を残し定量的に解析し, チームの協業と機敏性を改善させる.</p>
+</li>
+<li>
+<p><strong>・コードテスト, 整合性検証によるモデルの品質確認</strong><br>
+特徴抽出, データ整合性, モデルのパフォーマンスについて実験コードベースをテストする.</p>
+</li>
+<li>
+<p><strong>・継続的インテグレーションとデリバリ</strong><br>
+チームでのテスト実行を自動化する.<br>
+継続的な学習パイプラインの一部にモデルの学習を含め, リリースの一部にA/Bテストを入れて定性的なモデルだけが運用環境で使用されるようにする.</p>
+</li>
+<li>
+<p><strong>・サービス, モデル, データのモニタ</strong>　<br>
+サービスをモニタしインフラストラクチャのアップタイム, コンプライアンス, モデルの品質を確認することが重要である.<br>
+データとモデルのドリフトを特定し, 再学習が必要かどうかを把握し, 自動トリガーを設定することを検討する.</p>
+</li>
+</ul>
+<p>MicrosoftはMLOpsに対しどの程度成熟しているかを判断するためのフレームワークである成熟度を以下のレベルで定義している.</p>
+<ol start="0">
+<li>
+<p><strong>MLOpsなし</strong><br>
+チームのコミュニケーションはほとんどなく, モデルは手動で作成されトレーサビリティがない, かつエンジニアの依存性が高い.<br>
+リリースも手動であり, バージョン管理がない.<br>
+データサイエンティスト, データエンジニアのみが存在する.</p>
+</li>
+<li>
+<p><strong>DevOpsあり, MLOpsなし</strong><br>
+レベル0と比較し, データはパイプラインにより自動で収集され, ソフトウェアエンジニアが登場しモデルを受け取る.<br>
+モデルの統合テストがあり, リリースも自動化されている.</p>
+</li>
+<li>
+<p><strong>学習の自動化</strong><br>
+レベル1と比較し, データサイエンティスト, データエンジニア間のコミュニケーションが密に行われ, 学習コードやモデルのバージョンなど管理がされる.<br>
+MLOpsにおける学習が自動化されている.</p>
+</li>
+<li>
+<p><strong>モデルデプロイの自動化</strong><br>
+レベル2と比較し, モデルの統合部分に関してユニットテストや統合テストも含めたCI (Continuous Integration 継続的インテグレーション) / CD (Continuous Delivery 継続的デリバリ) が整備され, モデルデプロイの自動化がされている.<br>
+リリースまでも継続的にパイプラインで管理され, 自動で行われる.</p>
+</li>
+<li>
+<p><strong>MLOpsの再学習完全自動化</strong><br>
+レベル3と比較し, データサイエンティストとソフトウェアエンジニアが密に連携し, 実験コードが再現可能な状態になる.<br>
+また, データエンジニアとソフトウェアエンジニアも連携しデプロイ後のメトリック収集が実装される.<br>
+モデルの作成においてメトリック運用に基づいて再学習を自動トリガーするようになる.</p>
+</li>
+</ol>
+<p>さらに, MicrosoftではMLOpsを利用した開発のスケーリングについても述べている.<br>
+あるユースケースでうまくいった開発があり, それをスケーリングし他の大量のユースケースへ適用したいと考えた際, 再現可能なビジネスプロセスと標準化されたシステムであるAI Factoryが役立つ.<br>
+チームの立ち上げや推奨されるプラクティス, MLOpsの戦略や構成, ビジネス要件に合わせた再利用可能なテンプレートを最適化する.<br>
+以下はAI Factoryの主要な要素をまとめたものだ.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/microsoft_AIFactory.jpg" width="80%" height="80%"></p>
+<p>これらを考慮しAI Factoryの再現性を利用することで, スケーリングにおいて以下の利点が得られる.</p>
+<ul>
+<li>・設計フェーズの高速化</li>
+<li>・プロジェクト間でツールを再利用する際の他チームからの承認の迅速化</li>
+<li>・コードやプロジェクトのテンプレートとして再利用可能なインフラストラクチャによる開発の高速化</li>
+</ul>
+<p>Microsoftでは学習やデプロイの自動化など学習パイプラインがフォーカスされ, またそこに関わる人のコミュニケーションについても言及されている.<br>
+成熟度については4つのレベルで細かく定義されているが, 具体的なアーキテクチャの説明などは少ない印象だ.</p>
+<br>
+<br>
+<br>
+<h3 id="googleの説明">Googleの説明</h3>
+<p>Google (<u><a href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=en" target="_blank">MLOps: Continuous delivery and automation pipelines in machine learning</a></u>) の説明を見てみると,
+DevOpsが大規模なソフトウェアシステムの開発と運用における一般的な手法であることに対し, MLOpsが以下の点で異なることを指摘している.</p>
+<ul>
+<li>
+<p>開発:<br>
+MLには実験的性質があり様々な機能, アルゴリズム, モデリング, パラメータを試し最適な方法を見つける必要がある.</p>
+</li>
+<li>
+<p>テスト:<br>
+MLのテストは一般的な単体テストと統合テストに加え, データ検証やモデルの品質評価が必要である.</p>
+</li>
+<li>
+<p>デプロイ:<br>
+MLシステムではデプロイモデルを自動的に再学習する必要がある.</p>
+</li>
+<li>
+<p>本番環境:<br>
+MLモデルは絶えず変化するデータやプロファイルのためにパフォーマンスが変わる可能性があり, そのためデータの統計のトレーサビリティを保ち, モデルをモニタリングすることで想定と異なる場合に通知またはロールバックする必要がある.</p>
+</li>
+</ul>
+<p>MLシステムと聞くとコードを書きモデルを実装する部分に注目してしまうが, 実際の運用システムの要素としてはごく一部であり他は自動化, データ収集, データ検証, テストとデバッグ, リソース管理, モデル解析, プロセス管理とメタデータ管理, モニタリングなどから構成される.</p>
+<img src="https://sunagimon.github.io/images/blog/mlops1/google_mlsystem.jpg" width="80%" height="80%">  
+<p>また, GoogleではMLOpsの成熟具合について以下のレベルで定義している.</p>
+<ol start="0">
+<li>
+<p><strong>手動プロセス</strong><br>
+開発者がデータの収集からモデルの構築, デプロイまで全てのステップを手動で制御する.<br>
+これはノートブック等で作成された実験的なコードによって実行され, 学習済みのモデルのみが本番サービスとしてデプロイされる.
+<img src="https://sunagimon.github.io/images/blog/mlops1/google_mlops_m0.jpg" width="80%" height="80%"></p>
+</li>
+<li>
+<p><strong>MLパイプラインの自動化</strong><br>
+MLパイプラインが自動化され, 新しいデータを使用した本番環境でモデルを再学習するプロセスが自動化されている.<br>
+Feature storeやMeta data storeが追加され, 特定のTriggerに応じ学習パイプラインが実行されサービスにデプロイする流れができている.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/google_mlops_m1.jpg" width="80%" height="80%"></p>
+</li>
+<li>
+<p><strong>CI／CDパイプラインの自動化</strong><br>
+CIパイプラインがMLパイプラインと共に自動化される.<br>
+レベル１ではパイプライン自体のデプロイが自動化しておらず複数のパイプラインの管理コストなどが課題である.<br>
+一方, 自動化されたCI/CDを使用するとSource Repositoryへの更新をトリガーに各ステージでプロセスが走り本番環境にデプロイされる.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/google_mlops_m2.jpg" width="80%" height="80%"></p>
+</li>
+</ol>
+<p>Googleでは学習パイプラインがフォーカスされているが, 人やコミュニケーションの説明はない.<br>
+成熟度についてはアーキテクチャなども触れられているが, 3つのレベルでざっくり定義されている印象である (0~1の差が非常に大きい).</p>
+<br>
+<br>
+<br>
+<h3 id="awsの説明">AWSの説明</h3>
+<p>AWS (<u><a href="https://aws.amazon.com/jp/blogs/machine-learning/mlops-foundation-roadmap-for-enterprises-with-amazon-sagemaker/" target="_blank">MLOps foundation roadmap for enterprises with Amazon SageMaker</a></u>) では,
+MLOpsは機械学習ワークロードにDevOpsを適用することで構築された方法論を指すとしている. <br>
+データサイエンス, データエンジニアリングを既存のDevOpsのプラクティスと組み合わせることで機械学習開発ライフサイクルを合理化する.<br>
+DevOpsがソフトウェア開発と運用を統合するのと同様にMLOpsではソフトウェア開発, 運用, セキュリティ, データエンジニアリング, データサイエンスの統合が必要である.</p>
+<p>AWSでは, 具体的にどのサービスをMLOpsへ適用するかなどについても紹介されている.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_overview.jpg" width="80%" height="80%"></p>
+<p>また, 企業はデータサイエンティスト, データエンジニア, MLエンジニア, ITやビジネス関係者などの複数のペルソナがどのように協業すべきかについても説明がされている.<br>
+ロールの主な役割や役立つAWSサービスを簡単にまとめると以下となる.</p>
+<ul>
+  <li>「ITアドミニストレータ」
+  <br>標準的なMLOps環境を構築しユーザとデータにアクセスを提供する. 
+  <ol>
+  <li>・Model Registry</li>
+  <li>・CodeCommit</li>
+  <li>・CodeBuild</li>
+  <li>・Service Catalog</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「ビジネスステークホルダ」
+  <br>ビジネスに必要な意思決定をするためにデータや推論結果にアクセスする.    
+  <ol>
+    <li>・Glue</li>
+    <li>・Lake Formation</li>
+    <li>・Step Functions</li>
+    <li>・Landing Data</li>
+    <li>・QuickSight Visuallisation</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「データエンジニア」
+  <br>データを取り込みETLパイプラインを作成する.   
+  <br>MLユースケースに必要なデータを準備する.  
+  <ol>
+    <li>・Glue</li>
+    <li>・Lake Formation</li>
+    <li>・Step Functions</li>
+    <li>・Landing Data</li>
+    <li>・QuickSight Visuallisation</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「リードサイエンティスト」
+  <br>コードリポジトリとCI/CDパイプラインを用意する.   
+  <br>データサイエンティストとMLエンジニアがMLユースケースを製品化できるようにする.
+  <ol>
+    <li>・Model Registry</li>
+    <li>・CodeCommit</li>
+    <li>・CodePipeline</li>
+    <li>・CodeBuild</li>
+    <li>・ECR</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「リードサイエンティスト, ビジネスアナリスト, プロダクトオーナ」
+  <br>デプロイされるモデルをレビューし承認する. 
+  <ol>
+    <li>・Model Registry</li>
+    <li>・CodeCommit</li>
+    <li>・CodePipeline</li>
+    <li>・CodeBuild</li>
+    <li>・ECR</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「(リード)データサイエンティスト」
+  <br>全てのモデルを評価し最も良いモデルを選ぶ.
+  <ol>
+    <li>・SageMaker</li>
+    <li>・SageMaker Model Endpoints</li>
+    <li>・ML Data</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「MLエンジニアまたはデータサイエンティスト」
+  <br>CI/CDパイプラインを使いMLソルーションを実装するためコードリポジトリへのアクセスが必要となる. 
+  <br>モデルのビルドとMLパイプラインをモニタしデバッグする. 
+  <ol>
+    <li>・SageMaker</li>
+    <li>・SageMaker Model Endpoints</li>
+    <li>・ML Data</li>
+  </ol>
+  </li>
+</ul>
+<ul>
+  <li>「データサイエンティスト」
+  <br>最終的なフルスケールのモデルを作成するためMLパイプライン上でプロダクションのデータにアクセスする.
+  <ol>
+    <li>・SageMaker Model Endpoints</li>
+    <li>・ML Data</li>
+  </ol>
+  </li>
+</ul>
+<p>AWSではMLOpsの成熟度について以下のように説明.<br>
+Initial, Repeatable, Riliable, Scalableの４つのフェーズ (レベルという表現ではない) がある.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_m.jpg" width="80%" height="80%"></p>
+<ol start="0">
+<li>
+<p><strong>Initial</strong><br>
+データサイエンティストがノートブックを使用して実験を行い, MLで特定のビジネス上の問題を解決できる安全な実験環境を作成できている.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_m_0.jpg" width="80%" height="80%"></p>
+</li>
+<li>
+<p><strong>Repeatable</strong><br>
+Initialフェーズから移行し, MLによってビジネス課題を解決できることを証明できた後 (PoC完了後) のフェーズである.<br>
+MLパイプラインへの移行, リポジトリのブランチのマネジメントやCI/CD等の標準化なども行われる.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_m_1.jpg" width="80%" height="80%"><br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_m_1_0.jpg" width="80%" height="80%"></p>
+</li>
+<li>
+<p><strong>Riliable</strong><br>
+このフェーズはCI/CDを通してモデルをデプロイする.<br>
+先に述べた複数のペルソナが協業することで検証, 承認, デプロイのパイプラインが実施される.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_m_2.jpg" width="80%" height="80%"></p>
+</li>
+<li>
+<p><strong>Scalable</strong><br>
+最初のMLユースケース製品化のための開発が完了し, 次のユースケースを見出すフェーズである.<br>
+リードデータサイエンティストが新しいプロジェクトをインスタンス化し, 新たなMLユースケースごとに専任チームを割り当てる.<br>
+複数の製品所有者がモデルの学習や展開, 実行に対し個別に請求を支払うケースではチームごとに個別のMLOpsアカウントを用意する.<br>
+新しいアカウントを簡単に作成できるよう必要に応じてアカウントをカタログ化, インスタンス化, または廃止できるようにする.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_m_3.jpg" width="80%" height="80%"></p>
+</li>
+</ol>
+<p>AWSでは学習パイプラインのみならずセキュリティなども言及され, MLOpsに関わる人のロールついても説明がある.<br>
+成熟度は4つのフェーズでAWSの具体的なサービスを使ったアーキテクチャを見せつつ各ロールが行う一連の作業, やりとりが細かく説明がされている印象だ.</p>
+<br>
+<br>
+<br>
+<h3 id="big-tech3社の説明まとめ">Big Tech3社の説明まとめ</h3>
+<p>今回紹介した各社の記事では, 合理化の対象やそのレベル感は差がある印象を持ったが, まとめると以下のように説明できる.</p>
+<p>MLOpsというのはDevOpsの延長であり, ML開発におけるデータ収集, データ検証, テストとデバッグ, リソース管理, モデル解析, プロセス管理とメタデータ管理, モニタリングといった複雑な開発サイクルを合理化することを目指している.<br>
+ツールやシステムの観点のみならずそれに関わる人のロールやコミュニケーションも重要な要素となる.<br>
+フローを簡単に表すと以下のようになり, これの自動化や合理化をするものである.<br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/mlops_flow.jpeg" width="80%" height="80%"></p>
+<p>調べる中でMLシステム開発におけるMLそれ自体の要素は非常に少ないことがわかった.<br>
+やはりまずDevOpsが重要であり, データをどう扱うかのデータエンジニアリングも考える必要がある.<br>
+このことからMLOpsはML, DevOps, データエンジニアリングの交差であるとしばしば説明される.<br>
+<u><a href="https://towardsdatascience.com/ml-ops-machine-learning-as-an-engineering-discipline-b86ca4874a3f" target="_blank">MLOps: Machine Learning as an Engineering Discipline</a></u>
+<img src="https://sunagimon.github.io/images/blog/mlops1/what_mlops.jpg" width="80%" height="80%"></p>
+<p>今回紹介したのはあくまでBig Tech3社の考えるMLOpsだということは忘れてはいけない.<br>
+特にJTC (Japanese Traditional Company) はシステムや人を含めたリソース, 組織の構造が違うためそのまますぐの適用は難しいと思われる.<br>
+日本を含めた他の実例は多くあるためそれらも参考にしたい.</p>
+<p><strong>[MLOpsの事例]</strong></p>
+<ul>
+<li>
+<p>Netflix :
+<u><a href="https://youtu.be/fOSZuONmLbA" target="_blank">Netflix Presents: A Human Friendly Approach to MLOps — Julie Pitt and Ashish Rastogi, Netflix</a></u></p>
+</li>
+<li>
+<p>Meta :
+<u><a href="https://engineering.fb.com/2016/05/09/core-data/introducing-fblearner-flow-facebook-s-ai-backbone/" target="_blank">Introducing FBLearner Flow: Facebook’s AI backbone</a></u></p>
+</li>
+<li>
+<p>ぐるなび :
+<u><a href="https://developers.gnavi.co.jp/entry/ml-ops/" target="_blank">検索アルゴリズム改善における機械学習の活用　〜MLOpsについて〜</a></u></p>
+</li>
+<li>
+<p>ヤマト運輸 :
+<u><a href="https://exawizards.com/works/20297" target="_blank">ヤマト運輸、MLOpsで経営リソースの最適配置を実現
+「お手本がないものを1から作り上げ、機械学習モデルの運用安定と高速化を勝ち取った」</a></u></p>
+</li>
+<li>
+<p>Yahoo! Japan :
+<u><a href="https://techblog.yahoo.co.jp/entry/2021083130180585/" target="_blank">ヤフーのAIプラットフォーム紹介 〜 AI開発をより手軽に</a></u></p>
+</li>
+<li>
+<p>NTT docomo :
+<u><a href="https://nttdocomo-developers.jp/entry/202212191200_2" target="_blank">たった3人で運用するドコモを支える機械学習基盤の作り方 ー Kubernates × Airflow × DataRobot を使ったMLOpsパイプライン ー</a></u></p>
+</li>
+</ul>
+<hr>
+<h1 id="mlopsに使われる技術">MLOpsに使われる技術</h1>
+<p>MLOps実現するためのライブラリやツール, サービスについて調査した.<br>
+結論から言うと, その定義同様, これがスタンダードというものはない.<br>
+各々がインフラやコスト, 利便性や担当者の習熟度に合わせその時のベストプラクティスを選択している印象がある.<br>
+いくつか例を挙げて紹介する.</p>
+<p>[AWSのサービス] . <br>
+先にも紹介したが, AWSのサービスを組み合わせることで必要な機能が実装される.<br>
+ML開発にはPyTorchやTensorflowなど既存のフレームワークを採用できる.<br>
+<u><a href="https://pages.awscloud.com/rs/112-TZM-766/images/20201015_AWS%E3%81%A6%E3%82%99%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8BMLOps%E5%9F%BA%E7%9B%A4_%E9%85%8D%E5%B8%83%E7%89%88__AIMLTokyo7.pdf" target="_blank">AWSで構築するMLOps基盤</a></u><br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/aws_service.jpg" width="80%" height="80%"></p>
+<p>[Microsoft Azureのサービス] <br>
+AzureもAWS同様にサービスを組み合わせることで必要な機能が実装される.<br>
+<u><a href="https://youtu.be/KdbuWpRGwNk" target="_blank">Azure Machine LearningによるMLOpsとそのポイント</a></u><br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/microsoft_service.jpg" width="80%" height="80%"></p>
+<p>[Google Cloudのサービス]<br>
+Google Cloud AI Platform PipelinesというMLOpsのプラットフォームを提供している.<br>
+長らくベータ版が続いているようだ.<br>
+<u><a href="https://cloud.google.com/ai-platform/pipelines/docs/create-pipeline" target="_blank">Creating a machine learning pipeline</a></u></p>
+<p>[個別ライブラリの組み合わせ]<br>
+MLOpsの各フローの対応したライブラリを組み合わせることで必要な機能を実装する.<br>
+色々と実例を漁ったが, 以下がよく採用されているように思える.<br>
+ユースケースや扱うデータで変わるため, あくまで一例である. 　</p>
+<pre><code>- 準備
+    - Apache Spark
+    - SQL
+    - Jupyter
+    - Mongo DB
+- 開発
+    - Pytorch
+    - Tensolflow
+    - MLflow
+    - Apache Spark
+    - Onnx
+- 運用
+    - Docker
+    - Apache Spark
+    - databricks
+</code></pre>
+<p>例：<br>
+<u><a href="https://speakerdeck.com/icoxfog417/mlopsfalsekoremadetokorekara" target="_blank">MLOpsのこれまでとこれから</a></u><br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/library_ex1.jpg" width="80%" height="80%"><br>
+<u><a href="https://www.slideshare.net/databricks/mlflow-infrastructure-for-a-complete-machine-learning-life-cycle" target="_blank">MLflow: Infrastructure for a Complete Machine Learning Life Cycle</a></u><br>
+<img src="https://sunagimon.github.io/images/blog/mlops1/library_ex2.jpg" width="80%" height="80%"></p>
+<p>もちろん, 実際には個別ライブラリや各クラウドサービスを組み合わせたり, 開発フェーズで変更したりなど多様なやり方が見られる.　<br>
+MLOps全体を見る場合にはあまりに多くのスキルセットが要求されそうだ&hellip;<br>
+(実装編) を進める中で良いプラクティスを探していきたい.　</p>
+<hr>
+<h1 id="まとめ">まとめ</h1>
+<p>今回のパート (勉強編) ではBig Techなどの説明からMLOpsが何であるかを調べた.<br>
+MLOpsというのはDevOpsの延長であり, データエンジニアリングの要素も含む.<br>
+一般のソフトウェア開発にはないML開発に特有の複雑な開発サイクルを自動化・合理化することを目指している.<br>
+データの準備や管理, モデルの開発, 運用といったフローの中でそれぞれツールやシステムをユースケースや環境に合わせて選択する必要がある.<br>
+また, それに関わる人のロールは細かく定義されるが, 実際には明確な線引きが難しいケースがある.<br>
+各ロール間のコミュニケーションも大切な要素である.　　</p>
+<br>
+<p>最後に私の感想になるが, MLOpsはまだ発展途上であることが面白いと思う.<br>
+機械学習分野の発展は目まぐるしいものがあり, それを製品へ活かすことで新たな価値を創出する動きが加速している.<br>
+こうした流れに対する試行錯誤の様子が各社の説明・実例からも見てとれる.<br>
+現時点では定義もプラクティスも明確な正解はなく, 各社各人が手探りで進んでいるようだ.</p>
+<p>MLOpsを実践するにあたり, ロールを選べば良いため全てを演じる必要はないのだが一通り経験してみたいと思う.<br>
+実はApache Spark等を使い簡易なMLシステムを構築していたのがカレンダー登録に間に合わなかった&hellip;<br>
+次回「MLOpsに触れてみる (実装編) 」は少し時間をおいて何かしから有用なユースケースで開発をしてみるつもりだ.<br>
+一緒にやってくれる方いればぜひ.</p>
+<p>ではまた.</p>
+<br>
+<br>
+<br>
+<hr>
+<h1 id="参考">参考</h1>
+<p><u><a href="https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf" target="_blank">Hidden Technical Debt in Machine Learning Systems</a></u></p>
+<p><u><a href="https://learn.microsoft.com/en-us/azure/machine-learning/concept-model-management-and-deployment" target="_blank">MLOps: Model management, deployment, and monitoring with Azure Machine Learning</a></u></p>
+<p><u><a href="https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning?hl=en" target="_blank">MLOps: Continuous delivery and automation pipelines in machine learning</a></u></p>
+<p><u><a href="https://aws.amazon.com/jp/blogs/machine-learning/mlops-foundation-roadmap-for-enterprises-with-amazon-sagemaker/" target="_blank">MLOps foundation roadmap for enterprises with Amazon SageMaker</a></u></p>
+<p><u><a href="https://towardsdatascience.com/ml-ops-machine-learning-as-an-engineering-discipline-b86ca4874a3f" target="_blank">MLOps: Machine Learning as an Engineering Discipline</a></u></p>
+<p><u><a href="https://pages.awscloud.com/rs/112-TZM-766/images/20201015_AWS%E3%81%A6%E3%82%99%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8BMLOps%E5%9F%BA%E7%9B%A4_%E9%85%8D%E5%B8%83%E7%89%88__AIMLTokyo7.pdf" target="_blank">AWSで構築するMLOps基盤</a></u></p>
+<p><u><a href="https://youtu.be/KdbuWpRGwNk" target="_blank">Azure Machine LearningによるMLOpsとそのポイント</a></u></p>
+<p><u><a href="https://speakerdeck.com/icoxfog417/mlopsfalsekoremadetokorekara" target="_blank">MLOpsのこれまでとこれから</a></u></p>
+<p><u><a href="https://www.slideshare.net/databricks/mlflow-infrastructure-for-a-complete-machine-learning-life-cycle" target="_blank">MLflow: Infrastructure for a Complete Machine Learning Life Cycle</a></u></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call To Action Section Start -->
+<section id="call-to-action">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block">
+                    <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">contact</h1>
+                    <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms">Please let me know if you need anything.</p>
+                </div>
+                    <!-- Social Media -->
+                    <ul class="social text-center text-md-center text-lg-center">
+                        <li>
+                            <a href="https://twitter.com/sngm_tk" targrt="_Blank" class="twitter">
+                                <i class="ion-social-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/sngm_tk/" targrt="_Blank" class="instagram">
+                                <i class="ion-social-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/sngm_tk/" targrt="_Blank" class="pinterest">
+                                <i class="ion-social-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/sunagimon" target="_Blank" class="github">
+                                <i class="ion-social-github"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UCuQCam3WJuAbp9Ab37Lkvlw" target="_Blank" class="youtube">
+                                <i class="ion-social-youtube"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#116;&#46;&#117;&#107;&#97;&#119;&#97;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="mail">
+                                <i class="ion-android-mail"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Call To Action Section End -->
+
+<!-- Footer Section Start -->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">© 
+                    <span>
+                        <script>document.write(new Date().getFullYear())</script>
+                    </span>Takuto Ukawa | Powered by the 
+                    <a href="http://www.Themefisher.com" target="_blank">Themefisher</a>
+                </p>
+        </div>
+    </div>
+</footer>
+<!-- footer section end -->
+
+<!-- jquery -->
+<script src="https://sunagimon.github.io/plugins/jQurey/jquery.min.js"></script>
+<!-- Form Validation -->
+<script src="https://sunagimon.github.io/plugins/form-validation/jquery.form.js"></script>
+<script src="https://sunagimon.github.io/plugins/form-validation/jquery.validate.min.js"></script>
+<!-- slick slider -->
+<script src="https://sunagimon.github.io/plugins/slick/slick.min.js"></script>
+<!-- bootstrap js -->
+<script src="https://sunagimon.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- wow js -->
+<script src="https://sunagimon.github.io/plugins/wow-js/wow.min.js"></script>
+<!-- slider js -->
+<script src="https://sunagimon.github.io/plugins/slider/slider.js"></script>
+<!-- Fancybox -->
+<script src="https://sunagimon.github.io/plugins/facncybox/jquery.fancybox.js"></script>
+<!-- template main js -->
+
+<script src="https://sunagimon.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-132429975-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+
+</html></body>
+</html>

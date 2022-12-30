@@ -8,6 +8,27 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 15 Jul 2018 12:32:37 +0600</lastBuildDate><atom:link href="https://sunagimon.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>MLOpsに触れてみる (勉強編) </title>
+      <link>https://sunagimon.github.io/blog/mlops1/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0100</pubDate>
+      
+      <guid>https://sunagimon.github.io/blog/mlops1/</guid>
+      <description>今年もアドベンドカレンダー「ほぼ横浜の民 Advent Calendar 2022」を書く.
+MLOpsについて自分が勉強した備忘録を記す.
+この記事 (勉強編) ではMLOpsをBig Tech各社の説明や実例, 幾人のエキスパートの発表などから探る. 主にその定義や成熟度合いの基準, 必要となる要素や技術についてまとめる.
+今後ではあるが, (実装編) でMLOpsに関わるいくつかの有名なサービスやライブラリを実際に使い, 簡単な機械学習サービスを立ち上げる試行錯誤の様子を公開予定だ.
+ 動機 私は普段AIのモデルやシステムはその場・その時のモノを作成しがちだ.
+パイプラインの設計に決まりは特になく, 何かしらの課題に対し手頃なデータを用意し, モデルを見繕い, こちらに責務があればデプロイし, てきとうに用意したScriptで評価や効果を可視化し, それらしい資料を添え, 今回の施策を説明して終わりというお決まり (行き当たりばったり) の流れで生きている.
+小規模な開発や継続的なモデルの運用や改善をしない場であればこのやり方でも間に合っているが, これで良いのかと思うことが最近増えた.
+また, 世の中のデファクトスタンダードな機械学習開発とは何だろうかと思い, MLOpsを学んでみようと思った次第だ.
+ MLOpsとは MLOpsとは「機械学習モデルの効率的な実装やデプロイ, 運用することを目的とした一連のプラクティスおよびその概念」であるそうだ.
+機械学習 (Machine Learning) と運用 (Operations) を組み合わせた造語であり, 定義は色々と見られる.
+どうやら一般のソフトウェア開発にはないML開発特有の課題 (Hidden Technical Debt in Machine Learning Systems) を解決するためのものだそうだ.
+まずはBig Tech各社 = Microsoft, Google, AWS の説明を簡単にさらいMLOpsとは具体的に何かを探る.
+Microsoftの説明 Microsoft (MLOps: Model management, deployment, and monitoring with Azure Machine Learning) では, MLOpsはワークフローの効率を高める継続的なインテグレーション, デリバリ, デプロイなどDevOpsの原則と実践に基づいていると定義している.</description>
+    </item>
+    
+    <item>
       <title>Ukawacoinから学ぶブロックチェーン技術</title>
       <link>https://sunagimon.github.io/blog/ukawacoin1/</link>
       <pubDate>Sun, 09 Jan 2022 00:01:00 +0900</pubDate>
