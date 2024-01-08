@@ -6,7 +6,7 @@
     <description>Recent content on Takuto Ukawa | 宇川 拓人 Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Dec 2022 00:00:00 +0100</lastBuildDate><atom:link href="https://sunagimon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jan 2024 00:00:00 +0100</lastBuildDate><atom:link href="https://sunagimon.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bubble-Pixels</title>
       <link>https://sunagimon.github.io/portfolio/bubble/</link>
@@ -125,6 +125,38 @@ Grow or Rot ??
       
       <guid>https://sunagimon.github.io/portfolio/pazzle/</guid>
       <description>Tech enchant.js+JavaScriptで開発したHTMLで動作する全く新しい対戦パズルゲーム. 2人のプレイヤーがテトリス形状のブロックを順に場に出し, パズルが置けなくなった終了時に得点の高いプレイヤーが勝利する. ブロックには1~4の数字が書かれており, 数字順に縦or横かでなぞることができればチェインシステムが発動し, 消滅して高得点が得られる.  Comment シンプルなルールであるが, 互いの手札が見えるため戦略性が高いものとなった. そのため当時は必勝法が見つからずCPUの実装を断念した.</description>
+    </item>
+    
+    <item>
+      <title>横浜異国食材探訪記</title>
+      <link>https://sunagimon.github.io/blog/chinese/</link>
+      <pubDate>Mon, 08 Jan 2024 00:00:00 +0100</pubDate>
+      
+      <guid>https://sunagimon.github.io/blog/chinese/</guid>
+      <description>今年も「ほぼ横浜の民 Advent Calendar 2023」の記事を書く.
+横浜は文明開花以降, 外国との交流の窓口として栄え, 多様な文化が溶け合ってきた.
+そして今日に至るまでその伝統は色あせることなく, 中華街のような名所がその象徴となっている.
+しかし, こうした観光地をただ歩くだけではその真価は味わえない.
+本当の魅力は, そこで日々を生きる人々の暮らしや彼らが大切にしている文化にあると考える.
+この記事では, 中華食材に注目して, 横浜に在住する中国人が愛用するお店やそこでの購入方法を紹介する.
+私はこの街に数年住んだだけの日本人であるので, 実際に中国人の方々へ聞き込みや調査を行なった.
+この趣味の調査レポートで, 横浜での単なる観光を超えた新しい楽しみ方を伝えられると嬉しい.
+今回の料理と食材 中国はその広大な土地柄もあり, 地域ごとに異なる食文化を持つ.
+中華料理と一言で言っても様々あり, 日本で有名なのは上海料理, 広東料理, 北京料理, 四川料理あたりであろうか.
+日本でよく見かけるいわゆる町中華はこれらが派生し, ローカライズされたものである.
+中国では福建料理, 山東料理, 江蘇料理, 広東料理, 四川料理, 安徽料理, 浙江料理, 湖南料理, etc&amp;hellip;が一般的であるそうだ.
+今回は”老酒炖蛏”という中華料理の食材調達から調理までを紹介する. これは福建料理であり, 福建省の福州という地域の名物料理である.
+日本人が中華と聞くと, 油っぽくて味が濃い, 辛いイメージがあるが福建料理はそうではない.
+福建料理は海産物がたくさん使われ, 油も非常に少なく, 淡白な味付けであるものが多い.
+日本人好みの味であると思う.
+私も福建料理が大好きである.
+老酒炖蛏に必要な材料は以下である.
+ &amp;ndash; 蛏 &amp;ndash; 老酒 &amp;ndash; 生姜  (参考：下厨房 半酒炖蛏&amp;mdash;&amp;mdash;老福州人的做法)
+蛏は海蛏とも呼ばれる貝であり, 日本ではマテ貝として知られる.
+老酒は中国酒の一つであり, もち米や麦麹から醸造された黄酒を長期間熟成したものを指す.
+日本では紹興酒が馴染み深いが, これは中国東部にある浙江省紹興市で作られていることに由来し, 鑑湖という湖の水が使用されている必要があるそうだ.
+ここ以外の地域で醸造されたものは老酒や陳酒と呼ばれる.
+老酒炖蛏の材料は3種類だけであり, 水も調味料も不要なとてもシンプルな料理である.</description>
     </item>
     
     <item>
