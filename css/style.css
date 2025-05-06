@@ -1356,4 +1356,28 @@ ul.social-icons li {
   text-decoration: none;
 }
 
+/* 記事本文内のテーブル汎用スタイル */
+.entry-content table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow-x: auto;
+  /* モバイルで横スクロール可 */
+  display: block;
+}
+
+.entry-content th,
+.entry-content td {
+  border: 1px solid #ddd;
+  padding: .4em .8em;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  /* 長い日本語を折り返さずスクロールに任せる */
+}
+
+.entry-content th {
+  background: #f7f7f7;
+  font-weight: 600;
+}
+
 /*# sourceMappingURL=maps/style.css.map */
